@@ -19,7 +19,10 @@
 //Copyright>
 //Copyright>    As an alternative to this open-source version, Altair also offers Altair Radioss
 //Copyright>    software under a commercial license.  Contact Altair to discuss further if the
-//Copyright>    commercial version may interest you: https://www.altair.com/radioss/.
+//Copyright>    commercial version may interest you: https://www.altair.com/radioss/.*/
+#ifndef _HAS_STD_BYTE
+#define _HAS_STD_BYTE 0 // Disable std::byte to avoid conflict with Windows SDK typedef 'byte'
+#endif
 #include <UTILS/mv_string.h>
 #include <UTILS/mv_stl_various.h>
 #include <UTILS/file_utils.h>
@@ -56,7 +59,21 @@
 #define mkdir(dir, mode) _mkdir(dir)
 #endif
 
-using namespace std;
+// NOTE: Do NOT use 'using namespace std;' here.
+// Including <windows.h> pulls in headers (rpcndr.h, wtypes*.h, objidl*.h, oaidl.h)
+// which typedef a global 'byte' (typedef unsigned char byte;). In C++17 and later,
+// 'std::byte' is introduced. Bringing the entire std namespace into the global
+
+// producing error C2872. To avoid this, replace the broad using-directive with
+// selective using-declarations for only the standard library types we need.
+using std::string;
+using std::vector;
+using std::map;
+using std::set;
+using std::istringstream;
+using std::ifstream;
+using std::ofstream;
+// Add more as required, but keep the list minimal to prevent future symbol clashes.
 
 typedef vector<MvPreDatasHierarchy_t*> MvPreDatasHierarchyList_t;
 
