@@ -37,8 +37,17 @@
 
 #include <typedef.h>
 #include <sdiModelView.h>
+#include <exception>
 using namespace sdi;
 using namespace std;
+
+static void ReportModelBuildException(const char* funcname)
+{
+    try { throw; }
+    catch(const char* msg) { fprintf(stderr, "ERROR: %s failed: %s\n", funcname, msg); }
+    catch(const std::exception& e) { fprintf(stderr, "ERROR: %s failed: %s\n", funcname, e.what()); }
+    catch(...) { fprintf(stderr, "ERROR: %s failed: unknown exception\n", funcname); }
+}
 
 
 
@@ -65,7 +74,7 @@ CDECL int cfgreader(char *modelfilename)
         GlobalModelSDISetModel(pModelViewSDI);
         g_pModelViewSDI = pModelViewSDI;
 
-    } catch(...) {}
+    } catch(...) { ReportModelBuildException("cfgreader"); }
 
     unsigned int majorVersion = 0, minorVersion = 0, hotfixVersion = 0, buildNumber = 0;
 
@@ -84,9 +93,15 @@ CDECL int cfgreader_inc(char *modelfilename, int *nbDynaIncludes,char *globalPat
         ModelViewEdit *pModelViewSDI = NULL;
         pModelViewSDI = RadiossblkReadModelSDI(modelfilename);
         //RadiossblkApplyOffsets(pModelViewSDI);
-        
+
         GlobalModelSDISetModel(pModelViewSDI);
         g_pModelViewSDI = pModelViewSDI;
+
+        if(nullptr == pModelViewSDI)
+        {
+            fprintf(stderr, "ERROR: cfgreader_inc failed: could not build model from %s\n", modelfilename);
+            return 0;
+        }
 
         SelectionRead pSelection(pModelViewSDI, "/INCLUDE_LS-DYNA");
 
@@ -125,7 +140,7 @@ CDECL int cfgreader_inc(char *modelfilename, int *nbDynaIncludes,char *globalPat
             }
         }
 
-    } catch(...) {}
+    } catch(...) { ReportModelBuildException("cfgreader_inc"); }
 
 /*
     // Get and print reader messages

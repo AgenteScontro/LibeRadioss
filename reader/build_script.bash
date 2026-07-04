@@ -117,7 +117,7 @@ fi
 
 cd ${build_directory}
 
-cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -Darch=${arch}  -Dcom=${com} ..
+cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -Darch=${arch}  -Dcom=${com}   -DCMAKE_CXX_FLAGS="-g -O0" ..
 return_value=$?
 if [ $return_value -ne 0 ]
 then

@@ -454,10 +454,16 @@ static bool RadiossblkInitCFGKernel()
 
     vector<string>  allowable_vec{ "HM_SUPPORTED" };
     std::string str_error;
-    MultiCFGKernelMgr::getInstance().InitCFGKernel("", "", rad_version, "", false, allowable_vec, str_error);
+    const CFGKernel* a_cfgkernel = MultiCFGKernelMgr::getInstance().InitCFGKernel("", "", rad_version, "", false, allowable_vec, str_error);
     if(str_error.size() > 0)
     {
         radiossblkmessages.Add(9001, 3, "", 0, str_error.c_str());
+        return false;
+    }
+    if(nullptr == a_cfgkernel)
+    {
+        std::string str_msg = "Unknown or unsupported file format version: " + rad_version;
+        radiossblkmessages.Add(9001, 3, "", 0, str_msg.c_str());
         return false;
     }
     return true;
