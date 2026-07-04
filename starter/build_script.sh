@@ -22,7 +22,8 @@ function my_help()
   echo "                                          0 : no debug flags (default)"
   echo "                                          1 : usual debug flag"
   echo "                                          asan : gfortran address sanitizer"
-  echo " -open_reader                        : link with open_reader"
+  echo " -open_reader                        : link with open_reader (default)"
+  echo " -no-open_reader                     : do not link with open_reader"
   echo " -release                            : Set build for release (optimized)"
   echo " "
   echo " -addflag=\"list of additional flags\" : add compiler flags to usual set"
@@ -65,7 +66,7 @@ st_vers="starter"
 com=0
 release=0
 ad=none
-use_openreader=0
+use_openreader=1
 orb=""
 
 if [ "`uname -m`" == "x86_64" ]
@@ -138,6 +139,11 @@ else
        if [ "$arg" == "-open_reader" ]
        then
          use_openreader=1
+       fi
+
+       if [ "$arg" == "-no-open_reader" ]
+       then
+         use_openreader=0
        fi
 
        if [ "$arg" == "-static-link" ]

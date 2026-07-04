@@ -1,6 +1,12 @@
-# OpenRadioss
+# LibeRadioss
 
-## What is OpenRadioss?
+> **LibeRadioss is an unofficial fork of [OpenRadioss](https://github.com/OpenRadioss/OpenRadioss).**
+> It is not affiliated with, endorsed by, or supported by Altair or the OpenRadioss project.
+> For the official upstream project, releases, and support, see [www.openradioss.org](https://www.openradioss.org).
+
+## What is LibeRadioss?
+
+LibeRadioss is a personal, independently maintained fork of OpenRadioss, built on top of the same underlying **Altair® Radioss®** solver technology. It tracks upstream OpenRadioss and layers on additional changes and experiments that have not (or not yet) been merged into the official project.
 
 **Altair® Radioss®** is an industry-proven analysis solution that helps users evaluate and optimize product performance for highly nonlinear problems under dynamic loadings. For more than 30 years, organizations have used Altair Radioss to streamline and optimize the digital design process, replace costly physical tests with quick and efficient simulation, and speed up design optimization iterations.
 
@@ -8,28 +14,26 @@
 
 With OpenRadioss, scientists and technologists can focus their research on a stable code base under professional maintenance that benefits from the large library of existing finite element capabilities and the continuous integration and continuous development tools provided to contributors.
 
-For more information on the OpenRadioss project, please visit [www.openradioss.org](https://www.openradioss.org)
+For more information on the official OpenRadioss project, please visit [www.openradioss.org](https://www.openradioss.org)
 
-If you have any questions about OpenRadioss, please feel free to contact <webmaster@openradioss.org>.
+If you have any questions about OpenRadioss itself (not this fork), please feel free to contact <webmaster@openradioss.org>.
 
-## How to Use OpenRadioss
+## How to Use LibeRadioss
 
 * [Quick Start guide](doc/Getting_started.md)
-* [How to Build OpenRadioss](HOWTO.md)
-* [How to Run OpenRadioss](INSTALL.md)
+* [How to Build LibeRadioss](HOWTO.md)
+* [How to Run LibeRadioss](INSTALL.md)
 * [OpenRadioss Stable Releases](RELEASES.md)
 
 ## Community and Ways to Participate
 
-`git` and `git-lfs` are needed to clone the OpenRadioss repository.
+`git` and `git-lfs` are needed to clone the repository.
 
-* [How to contribute](CONTRIBUTING.md)
+This fork does not have its own separate community channels. Issues and changes specific to LibeRadioss should be raised in this repository; for contributing to upstream OpenRadioss itself, see below.
+
+* [How to contribute (upstream OpenRadioss)](CONTRIBUTING.md)
 * [How to access the stable version of the code](Stable_code.md)
 * [Code of conduct](CODE_OF_CONDUCT.md)
-
-Community Manager
-Marian Bulla
-<communitymanager@openradioss.org>  
 
 ## OpenRadioss GUI
 
@@ -60,6 +64,8 @@ Help Documentation in pdf form:
 * [reference guide](https://2022.help.altair.com/2022/simulation/pdfs/radopen/AltairRadioss_2022_ReferenceGuide.pdf)  
 * [user guide](https://2022.help.altair.com/2022/simulation/pdfs/radopen/AltairRadioss_2022_UserGuide.pdf)  
 * [theory manual](https://2022.help.altair.com/2022/simulation/pdfs/radopen/AltairRadioss_2022_TheoryManual.pdf)  
+
+Upstream OpenRadioss CI status (not this fork):
 
 [![Current status](https://github.com/OpenRadioss/OpenRadioss/actions/workflows/prmerge_ci_main.yml/badge.svg)](https://github.com/OpenRadioss/OpenRadioss/actions/workflows/prmerge_ci_main.yml)
 
