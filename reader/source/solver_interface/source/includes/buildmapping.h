@@ -28,7 +28,6 @@
 
 #include <HCDI/hcdi_mv_descriptor.h>
 
-#include <boost/unordered_map.hpp>
 #include <tuple>
 
 #include <dyna2rad/dyna2rad.h>

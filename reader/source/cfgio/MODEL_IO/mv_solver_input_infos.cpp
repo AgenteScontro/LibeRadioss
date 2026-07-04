@@ -28,9 +28,6 @@
 #include <KERNEL/mv_model_descriptors.h>
 #include <HCDI/hcdi_mv_descriptor.h>
 #include "mv_solver_input_infos.h"
-#include <boost/filesystem.hpp>
-#include <boost/algorithm/string.hpp>
-#include <boost/algorithm/string/replace.hpp>
 #include <HCDI/hcdi_utils.h>
 
 

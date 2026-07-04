@@ -592,7 +592,18 @@ void RadiossblkUnApplyOffsets(sdi::ModelViewEdit *pModelView)
 #include <HCDI/hcdi_mv_descriptor.h>
 #include <HCDI/hcdi_dimensions.h>
 #include <MODEL_IO/mec_pre_object_expression_evaluator.h> // in hwcommon/cfgio
-#include <boost/algorithm/string/replace.hpp>
+
+// in-place replacement of all non-overlapping occurrences, left to right
+static void loc_replace_all(string& str, const string& from, const string& to)
+{
+    if(from.empty()) return;
+    size_t pos = 0;
+    while((pos = str.find(from, pos)) != string::npos)
+    {
+        str.replace(pos, from.length(), to);
+        pos += to.length();
+    }
+}
 
 static void RadiossblkGetDimension(double *pVal, const MuQuantity_t &quantity, MuEQuantity_e dim,
     const IMECPreObject *pPreobj, const IDescriptor *pDescr, vector<string>* pSkwds)
@@ -609,7 +620,7 @@ static void RadiossblkGetDimension(double *pVal, const MuQuantity_t &quantity, M
             {
                 if(quantity.getArgsVect()[i] != pSkwds->at(i))
                 {
-                    boost::replace_all(skwdExpr, quantity.getArgsVect()[i], pSkwds->at(i));
+                    loc_replace_all(skwdExpr, quantity.getArgsVect()[i], pSkwds->at(i));
                 }
             }
             // We are using a utility class from hcio here. This would add another dependency to

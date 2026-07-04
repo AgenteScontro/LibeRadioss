@@ -23,7 +23,6 @@
 
 #include "GlobalModelSDI.h"
 #include <buildmapping.h>
-#include <boost/algorithm/string.hpp>
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>

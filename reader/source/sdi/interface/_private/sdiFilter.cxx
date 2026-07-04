@@ -301,7 +301,7 @@ FilterParent* FilterParent::P_Clone() const
 // *********************************************************************************
 //   FilterCustom
 // *********************************************************************************
-FilterCustom::FilterCustom(boost::function1<bool, const void* const> func, const Filter& selectionFilter) : 
+FilterCustom::FilterCustom(std::function<bool(const void* const)> func, const Filter& selectionFilter) :
         Filter(selectionFilter),
         p_func(func)
 {

@@ -30,7 +30,7 @@
 
 #include <HCDI/hcdi_mv_descriptor.h>
 
-#include <boost/unordered_map.hpp>
+#include <unordered_map>
 #include <tuple>
 
 
@@ -55,21 +55,16 @@ typedef std::tuple<std::string,int,std::string> NameIdTitle;
 // hash function for a pair of integer + a string
 // When the key of an unordored_map is a pair, we must define the hash function
 struct pair_hash{
-    std::size_t operator()( const MappingKey  &my_pair) const 
+    std::size_t operator()( const MappingKey  &my_pair) const
     {
         size_t seed = 0;
-//  If boost need to be removed:
-//  the two following lines are equivalent (same magic numbers)  of using boost:hash_combine
-//      seed std::hash<int>{}(my_pair.first) + 0x9e3779b9 + (seed<<6) + (seed >>2); 
-//      seed std::hash<std::string>{}(my_pair.second) + 0x9e3779b9 + (seed<<6) + (seed >>2);
-        boost::hash_combine(seed,my_pair.first);
-        boost::hash_combine(seed,my_pair.second);
+        seed ^= std::hash<int>{}(my_pair.first) + 0x9e3779b9 + (seed<<6) + (seed>>2);
+        seed ^= std::hash<std::string>{}(my_pair.second) + 0x9e3779b9 + (seed<<6) + (seed>>2);
         return seed;
-    } 
+    }
 };
 //Give a short name for the type tyat will contain the dyna2rad mapping
-//use boost for performance reason only, can safely be replaced by std
-typedef boost::unordered_map<MappingKey,MappingValue,pair_hash> R2DMapping; 
+typedef std::unordered_map<MappingKey,MappingValue,pair_hash> R2DMapping;
 // R2D is a pair of MappingKeys (i.e. a couple fof triplets {id,name,tittre})
 typedef std::pair<NameIdTitle,NameIdTitle> R2DCouple;
 //D2RMapping is a vector of R2D couples
@@ -96,16 +91,16 @@ typedef std::pair<int,std::string>  RadOpt ;
 
 // hash function for a pair of integer + a string for RadOptKey
 struct pair_hash_rd{
-    std::size_t operator()( const RadOptKey &my_pair) const 
+    std::size_t operator()( const RadOptKey &my_pair) const
     {
         size_t seed = 0;
-        boost::hash_combine(seed,my_pair.first);
-        boost::hash_combine(seed,my_pair.second);
+        seed ^= std::hash<int>{}(my_pair.first) + 0x9e3779b9 + (seed<<6) + (seed>>2);
+        seed ^= std::hash<std::string>{}(my_pair.second) + 0x9e3779b9 + (seed<<6) + (seed>>2);
         return seed;
-    } 
+    }
 };
 
-typedef boost::unordered_map<RadOptKey,RadOpt,pair_hash_rd> RADMapping; 
+typedef std::unordered_map<RadOptKey,RadOpt,pair_hash_rd> RADMapping;
 
 // STD:: version
 //typedef std::pair<RadOptKey,RadOpt> RADCouple;

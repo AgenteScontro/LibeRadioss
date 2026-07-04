@@ -29,7 +29,6 @@
 #include <sdiValuePtr.h>
 
 #include <regex>
-#include <boost/lexical_cast.hpp>
 
 
 #define _LARGE_FLOAT 1.0e+100

@@ -23,8 +23,18 @@
 
 #include "mec_expression_evaluator.h"
 #include <string>
-#include <boost/lexical_cast.hpp>
+#include <sstream>
+#include <limits>
 using std::string;
+
+// round-trip-precise double to string conversion (max_digits10 significant digits)
+static string loc_double_to_string(double value)
+{
+    std::ostringstream oss;
+    oss.precision(std::numeric_limits<double>::max_digits10);
+    oss << value;
+    return oss.str();
+}
 
 IVariableExpressionEvaluator::IVariableExpressionEvaluator(const IExpressionEvaluator* pEvaluator) :
     p_pEvaluator(const_cast<IExpressionEvaluator*>(pEvaluator)), p_doDelete(false)
@@ -89,7 +99,7 @@ double IVariableExpressionEvaluator::Evaluate(const char* expression, int* pErro
             }
             else if(GetValue(token.c_str(), tokenValue))
             { // the token is a variable, replace with value
-                newExpression += boost::lexical_cast<string>(tokenValue);
+                newExpression += loc_double_to_string(tokenValue);
             }
             else
             { // it's an unknown token, so just copy

@@ -30,7 +30,8 @@
 #define SDIVALUEENTITY__INCLUDED_
 
 #include <sdiUtilsDefs.h>
-#include <boost/iterator/iterator_facade.hpp>
+#include <iterator>
+#include <cstddef>
 
 
 class sdiValue;
@@ -227,20 +228,28 @@ public:
     inline bool SetLists(const sdiUIntList& aId, const sdiCharList& aTopologyIndex);
 
 //HwConvert }}
-    class const_iterator : public boost::iterator_facade<const_iterator, sdiValueEntity const, boost::forward_traversal_tag>
+    class const_iterator
     {
     public:
+        typedef std::forward_iterator_tag iterator_category;
+        typedef sdiValueEntity const      value_type;
+        typedef std::ptrdiff_t            difference_type;
+        typedef sdiValueEntity const*     pointer;
+        typedef sdiValueEntity const&     reference;
+
         const_iterator(sdiValueEntityList const& el, unsigned int i) : _i(i), _el(&el) {}
         const_iterator& operator=(const const_iterator& input) { _el = input._el; _i = input._i; return *this; }
-    private:
 
-        friend class boost::iterator_core_access;
-        void increment() { ++_i; }
-        bool equal(const_iterator const& other) const { return &this->_el == &this->_el && this->_i == other._i; }
-        sdiValueEntity const& dereference() const {
+        const_iterator& operator++() { ++_i; return *this; }
+        const_iterator operator++(int) { const_iterator tmp(*this); ++_i; return tmp; }
+        bool operator==(const_iterator const& other) const { return _el == other._el && _i == other._i; }
+        bool operator!=(const_iterator const& other) const { return !(*this == other); }
+        reference operator*() const {
             _el->GetEntity(_e, _i);
             return _e;
         }
+        pointer operator->() const { return &(operator*()); }
+    private:
         unsigned int _i;
         sdiValueEntityList const* _el;
         mutable sdiValueEntity _e;

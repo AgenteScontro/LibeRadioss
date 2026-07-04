@@ -31,6 +31,8 @@
 
 #include <sdiDefs.h>
 
+#include <functional>
+
 
 namespace sdi
 {
@@ -324,7 +326,7 @@ private:
 class SDI_DECLS FilterCustom : public Filter
 {
 public:
-    FilterCustom(boost::function1<bool, const void* const> func, 
+    FilterCustom(std::function<bool(const void* const)> func,
                  const Filter& selectionFilter = nullFilter);
 
 public:
@@ -336,14 +338,14 @@ public:
     FilterCustom& operator=(const FilterCustom& that);
     virtual ~FilterCustom();
 
-    const boost::function1<bool, const void* const> GetCustomFunc() const {
+    const std::function<bool(const void* const)> GetCustomFunc() const {
         return(p_func);
         }
 
 private:
     virtual FilterCustom* P_Clone() const;
 
-    boost::function1<bool, const void* const> p_func;
+    std::function<bool(const void* const)> p_func;
 }; // FilterCustom class
 
 

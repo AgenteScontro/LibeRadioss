@@ -85,8 +85,7 @@ if (com STREQUAL "0")
                       io_${arch}
                       sdi_${arch}
                       cfgio_${arch}
-		              cfgkernel_${arch}
-                      ${open_reader_root_dir}/../extlib/boost/boost_1_70_0/static/lib/${arch}/libboost_filesystem.${lib})
+                      cfgkernel_${arch})
 
 
 

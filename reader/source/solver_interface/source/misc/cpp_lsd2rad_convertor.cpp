@@ -29,7 +29,6 @@
 
 #include <HCDI/hcdi_mv_descriptor.h>
 
-#include <boost/unordered_map.hpp>
 #include <tuple>
 
 #include <dyna2rad/dyna2rad.h>
@@ -61,13 +60,7 @@ int starter_lic_checkout( char * filename,int model);
 ModelViewEdit* pRadiossModelViewSDI = NULL;
 ModelViewEdit* pDynaModelViewSDI = NULL;
 
-typedef boost::unordered_map<HandleRead*, sdiVector<HandleRead*>> SourceDestQueryHandle;
-//SourceDestQueryHandle g_conversionLog;
 sdiConvert::LogQueryHandle g_conversionLog;
-
-
-extern "C" int SdiD2RConvert(ModelViewRead* dynaModelViewSDI, ModelViewEdit* radModelViewSDI,
-    boost::unordered_map<HandleRead*, sdiVector<HandleRead*>>&g_conversionLog);
 
 
 sdiString GetFileNameFromPath(const sdiString& filePath)

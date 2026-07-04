@@ -27,9 +27,9 @@
 #include <UTILS/error.h>
 #include <UTILS/file_utils.h>
 #include <stdio.h>
-#include "boost/filesystem.hpp"   // includes all needed Boost.Filesystem declarations
+#include <filesystem>
 #include <iostream>               // for std::cout
-namespace fs = boost::filesystem;
+namespace fs = std::filesystem;
 
 MvFileFormat_e MultiCFGKernelMgr::CFGKernelSentinel::s_effSolver = FF_UNKNOWN;
 int MultiCFGKernelMgr::CFGKernelSentinel::count = 0;

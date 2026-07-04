@@ -65,11 +65,9 @@ extern "C"
 #include <MODEL_IO/meci_read_model_base.h>
 #include <MODEL_IO/meci_model_factory.h>
 #include "hw_cfg_reader.h"
-#include <boost/algorithm/string/classification.hpp> // Include boost::for is_any_of
-#include <boost/algorithm/string/split.hpp> // Include for boost::split
-#include <boost/algorithm/string.hpp>
 #include <mec_data_writer.h>
 #include <fstream>
+#include <algorithm>
 
 typedef InputInfos::MyKeywordSet_t     LocKeywordSet_t;
 typedef InputInfos::MyObjectKeywords_t LocObjectKeywords_t;
@@ -1302,7 +1300,7 @@ bool HWCFGReader::IsIncludedFile(const char* buffer, char** full_name_p, char** 
             char* a_buffer = strdup(buffer + strlen(myInputInfosPtr->GetIncludeKeyword()));
             killBlanksNLEnd(a_buffer);
             a_name_prev = killBlanksBegin(a_buffer);
-            boost::erase_all(a_name_prev, "'");
+            a_name_prev.erase(std::remove(a_name_prev.begin(), a_name_prev.end(), '\''), a_name_prev.end());
             myfree(a_buffer);
         }
 
