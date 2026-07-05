@@ -32,7 +32,7 @@
 extern "C" 
 {
 
-CDECL void cpp_current_option_(int *ID, int *UID, int *includeId,char *KEY, int *SKEY, char *TITR, int *STITR)
+CDECL void cpp_current_option(int *ID, int *UID, int *includeId,char *KEY, int *SKEY, char *TITR, int *STITR)
 {
     bool isOk=false;
     char  *v;
@@ -58,15 +58,6 @@ CDECL void cpp_current_option_(int *ID, int *UID, int *includeId,char *KEY, int 
     strcpy(KEY,buffer1);
     *SKEY = strlen(buffer1);
 }
-
-CDECL void CPP_CURRENT_OPTION(int *ID, int *UID, int *includeId, char *KEY, int *SKEY, char *TITR, int *STITR)
-{cpp_current_option_ (ID,UID,includeId,KEY,SKEY,TITR,STITR);}
-
-CDECL void cpp_current_option__(int *ID, int *UID, int *includeId, char *KEY, int *SKEY, char *TITR, int *STITR)
-{cpp_current_option_ (ID,UID,includeId,KEY,SKEY,TITR,STITR);}
-
-CDECL void cpp_current_option(int *ID, int *UID, int *includeId, char *KEY, int *SKEY, char *TITR, int *STITR)
-{cpp_current_option_ (ID,UID,includeId,KEY,SKEY,TITR,STITR);}
 
 
 }

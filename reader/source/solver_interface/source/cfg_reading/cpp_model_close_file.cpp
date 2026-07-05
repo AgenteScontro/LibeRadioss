@@ -31,19 +31,10 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_model_close_file_()
+CDECL void cpp_model_close_file()
 {
      GlobalModelCloseFile();
 }
-
-CDECL void CPP_MODEL_CLOSE_FILE()
-{cpp_model_close_file_ ();}
-
-CDECL void cpp_model_close_file__()
-{cpp_model_close_file_ ();}
-
-CDECL void cpp_model_close_file()
-{cpp_model_close_file_ ();}
 
 
 }

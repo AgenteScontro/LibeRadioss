@@ -32,20 +32,11 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_convert_fail_tab_(int *TABLE_MAXID,int *FAIL_MAXID,int *OFFSET)
+CDECL void cpp_convert_fail_tab(int *TABLE_MAXID,int *FAIL_MAXID,int *OFFSET)
 {
 // Convert entity
     GlobalEntitySDIConvertFailTab(TABLE_MAXID,FAIL_MAXID,OFFSET);
 }
-
-CDECL void CPP_CONVERT_FAIL_TAB(int *TABLE_MAXID,int *FAIL_MAXID,int *OFFSET)
-{cpp_convert_fail_tab_ (TABLE_MAXID,FAIL_MAXID,OFFSET);}
-
-CDECL void cpp_convert_fail_tab__(int *TABLE_MAXID,int *FAIL_MAXID,int *OFFSET)
-{cpp_convert_fail_tab_ (TABLE_MAXID,FAIL_MAXID,OFFSET);}
-
-CDECL void cpp_convert_fail_tab(int *TABLE_MAXID,int *FAIL_MAXID,int *OFFSET)
-{cpp_convert_fail_tab_ (TABLE_MAXID,FAIL_MAXID,OFFSET);}
 
 
 }

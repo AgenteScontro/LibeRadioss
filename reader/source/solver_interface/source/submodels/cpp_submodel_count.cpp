@@ -35,7 +35,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_submodel_count_(int *HM_SUBMODEL_NUMBER, int *MAXSUBMOD)
+CDECL void cpp_submodel_count(int *HM_SUBMODEL_NUMBER, int *MAXSUBMOD)
 {
     unsigned int submodelId=0;
     unsigned int includeId=0;
@@ -53,15 +53,6 @@ CDECL void cpp_submodel_count_(int *HM_SUBMODEL_NUMBER, int *MAXSUBMOD)
     }
     *HM_SUBMODEL_NUMBER = i;
 }
-
-CDECL void CPP_SUBMODEL_COUNT(int *HM_SUBMODEL_NUMBER, int *MAXSUBMOD)
-{cpp_submodel_count_ (HM_SUBMODEL_NUMBER,MAXSUBMOD);}
-
-CDECL void cpp_submodel_count__(int *HM_SUBMODEL_NUMBER, int *MAXSUBMOD)
-{cpp_submodel_count_ (HM_SUBMODEL_NUMBER,MAXSUBMOD);}
-
-CDECL void cpp_submodel_count(int *HM_SUBMODEL_NUMBER, int *MAXSUBMOD)
-{cpp_submodel_count_ (HM_SUBMODEL_NUMBER,MAXSUBMOD);}
 
 
 }

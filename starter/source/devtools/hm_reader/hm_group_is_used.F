@@ -49,6 +49,7 @@ C     LSUBMODEL    SUBMODEL STRUCTURE
 C============================================================================
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE, INTRINSIC :: ISO_C_BINDING, ONLY: C_BOOL
       USE MESSAGE_MOD       
       USE SUBMODEL_MOD

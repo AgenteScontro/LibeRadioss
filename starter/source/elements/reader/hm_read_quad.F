@@ -58,6 +58,7 @@ C     LSUBMODEL       SUBMODEL STRUCTURE
 C-----------------------------------------------
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE UNITAB_MOD
       USE MESSAGE_MOD
       USE SUBMODEL_MOD , ONLY : NSUBMOD, SUBMODEL_DATA

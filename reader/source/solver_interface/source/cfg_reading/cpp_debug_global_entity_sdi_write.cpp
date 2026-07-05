@@ -31,19 +31,10 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_debug_global_entity_sdi_write_()
+CDECL void cpp_debug_global_entity_sdi_write()
 {
     GlobalDebugEntitySDIWrite();
 }
-
-CDECL void CPP_DEBUG_GLOBAL_ENTITY_SDI_WRITE()
-{cpp_debug_global_entity_sdi_write_ ();}
-
-CDECL void cpp_debug_global_entity_sdi_write__()
-{cpp_debug_global_entity_sdi_write_ ();}
-
-CDECL void cpp_debug_global_entity_sdi_write()
-{cpp_debug_global_entity_sdi_write_ ();}
 
 
 }

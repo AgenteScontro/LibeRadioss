@@ -49,6 +49,7 @@ C     IS_AVAILABLE VALUE AVAILABLE IN MODEL OR NOT
 C============================================================================
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE, INTRINSIC :: ISO_C_BINDING, ONLY: C_BOOL
       USE MESSAGE_MOD   
 C-----------------------------------------------

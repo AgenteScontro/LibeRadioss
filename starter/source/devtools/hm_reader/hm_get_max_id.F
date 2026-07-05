@@ -51,6 +51,7 @@ C     LSUBMODEL    SUBMODEL STRUCTURE
 C============================================================================
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE MESSAGE_MOD       
       USE SUBMODEL_MOD
       USE NAMES_AND_TITLES_MOD , ONLY : NCHARLINE

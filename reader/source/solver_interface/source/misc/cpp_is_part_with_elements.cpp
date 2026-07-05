@@ -26,7 +26,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <dll_settings.h>
+#include <typedef.h>
+#include <sdiModelView.h>
 
+using namespace sdi;
 using namespace std;
 
 extern "C" 
@@ -54,21 +57,20 @@ extern "C"
 //   - Set *is_part_with_elements = true on first match; false if none found
 // =============================================================================
 
-CDECL void cpp_is_part_with_elements_(int *part_id, bool *is_part_with_elements)
+CDECL void cpp_is_part_with_elements(int *part_id, bool *is_part_with_elements)
 {
-    // TODO(open_reader): implement part-is-filled query against SDI model
-    // For now, assume every part has elements so the "missing material" check
-    // still fires when material is actually missing.
-    *is_part_with_elements = true;
+    // Locate the /PART by its user id, then count the elements it owns.
+    // Mirrors GlobalEntitySDICountElementsInPart: SelectionElementRead(part)
+    // walks every element referencing the part, across all element families.
+    *is_part_with_elements = false;
+    HandleRead partHandle;
+    if (g_pModelViewSDI->FindById("/PART", (unsigned int)*part_id, partHandle))
+    {
+        EntityRead partEntity(g_pModelViewSDI, partHandle);
+        SelectionElementRead elems(partEntity);
+        *is_part_with_elements = (elems.Count() > 0);
+    }
 }
 
-CDECL void CPP_IS_PART_WITH_ELEMENTS(int *part_id, bool *is_part_with_elements)
-{ cpp_is_part_with_elements_(part_id, is_part_with_elements); }
-
-CDECL void cpp_is_part_with_elements__(int *part_id, bool *is_part_with_elements)
-{ cpp_is_part_with_elements_(part_id, is_part_with_elements); }
-
-CDECL void cpp_is_part_with_elements(int *part_id, bool *is_part_with_elements)
-{ cpp_is_part_with_elements_(part_id, is_part_with_elements); }
 
 }

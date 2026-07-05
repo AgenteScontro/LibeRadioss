@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_rivet_read_(int *IXRI, int *NIXRI,int *IPARTRI, int *SUBID_RIVET)
+CDECL void cpp_rivet_read(int *IXRI, int *NIXRI,int *IPARTRI, int *SUBID_RIVET)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/RIVET");
     int i=0;
@@ -76,15 +76,6 @@ CDECL void cpp_rivet_read_(int *IXRI, int *NIXRI,int *IPARTRI, int *SUBID_RIVET)
         aNodeId.resize(0);
     }
 }
-
-CDECL void CPP_RIVET_READ(int *IXRI, int *NIXRI, int *IPARTRI, int *SUBID_RIVET)
-{cpp_rivet_read_ (IXRI,NIXRI,IPARTRI,SUBID_RIVET);}
-
-CDECL void cpp_rivet_read__(int *IXRI, int *NIXRI, int *IPARTRI, int *SUBID_RIVET)
-{cpp_rivet_read_ (IXRI,NIXRI,IPARTRI,SUBID_RIVET);}
-
-CDECL void cpp_rivet_read(int *IXRI, int *NIXRI, int *IPARTRI, int *SUBID_RIVET)
-{cpp_rivet_read_ (IXRI,NIXRI,IPARTRI,SUBID_RIVET);}
 
 
 }

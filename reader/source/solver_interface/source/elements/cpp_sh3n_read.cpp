@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_sh3n_read_(int *IXTG, int *NIXTG, int *IPARTTG, double *ANGLE, double *THK, int *SUBID_SH3N, int *UID_SH3N)
+CDECL void cpp_sh3n_read(int *IXTG, int *NIXTG, int *IPARTTG, double *ANGLE, double *THK, int *SUBID_SH3N, int *UID_SH3N)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/SH3N");
     int i=0;
@@ -98,14 +98,6 @@ CDECL void cpp_sh3n_read_(int *IXTG, int *NIXTG, int *IPARTTG, double *ANGLE, do
         }
 }
 
-CDECL void CPP_SH3N_READ(int *IXTG, int *NIXTG, int *IPARTTG, double *ANGLE, double *THK, int *SUBID_SH3N, int *UID_SH3N)
-{cpp_sh3n_read_ (IXTG,NIXTG,IPARTTG,ANGLE,THK,SUBID_SH3N,UID_SH3N);}
-
-CDECL void cpp_sh3n_read__(int *IXTG, int *NIXTG, int *IPARTTG, double *ANGLE, double *THK, int *SUBID_SH3N, int *UID_SH3N)
-{cpp_sh3n_read_ (IXTG,NIXTG,IPARTTG,ANGLE,THK,SUBID_SH3N,UID_SH3N);}
-
-CDECL void cpp_sh3n_read(int *IXTG, int *NIXTG, int *IPARTTG, double *ANGLE, double *THK, int *SUBID_SH3N, int *UID_SH3N)
-{cpp_sh3n_read_ (IXTG,NIXTG,IPARTTG,ANGLE,THK,SUBID_SH3N,UID_SH3N);}
 
 }
 

@@ -26,7 +26,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <dll_settings.h>
+#include <typedef.h>
+#include <sdiModelView.h>
 
+using namespace sdi;
 using namespace std;
 
 extern "C" 
@@ -57,21 +60,22 @@ extern "C"
 //   - Otherwise set NBRBODIES_PER_PART[pos] = 0
 // =============================================================================
 
-CDECL void cpp_evaluate_rbodies_number_from_rigid_parts_(int *NBRBODIES_PER_PART)
+CDECL void cpp_evaluate_rbodies_number_from_rigid_parts(int *NBRBODIES_PER_PART)
 {
-    // TODO(open_reader): iterate /PART selection, read Irigid attribute,
-    // fill NBRBODIES_PER_PART[0..NPART-1] with 0 or 1.
-    // For now: leave everything at 0 (no rigid bodies created), which means
-    // no /RBODY entities will be auto-generated.
+    // Walk the /PART selection in the same order HM_OPTION_COUNT('/PART') uses
+    // on the caller side (starter0.F), so index i here matches part i there.
+    // A part flagged IRIGID==1 needs exactly one auto-generated /RBODY.
+    SelectionRead parts(g_pModelViewSDI, "/PART");
+    int i = 0;
+    while (parts.Next())
+    {
+        int irigid = 0;
+        sdiValue value;
+        if (parts->GetValue(sdiIdentifier("IRIGID"), value)) value.GetValue(irigid);
+        NBRBODIES_PER_PART[i] = (irigid == 1) ? 1 : 0;
+        ++i;
+    }
 }
 
-CDECL void CPP_EVALUATE_RBODIES_NUMBER_FROM_RIGID_PARTS(int *NBRBODIES_PER_PART)
-{ cpp_evaluate_rbodies_number_from_rigid_parts_(NBRBODIES_PER_PART); }
-
-CDECL void cpp_evaluate_rbodies_number_from_rigid_parts__(int *NBRBODIES_PER_PART)
-{ cpp_evaluate_rbodies_number_from_rigid_parts_(NBRBODIES_PER_PART); }
-
-CDECL void cpp_evaluate_rbodies_number_from_rigid_parts(int *NBRBODIES_PER_PART)
-{ cpp_evaluate_rbodies_number_from_rigid_parts_(NBRBODIES_PER_PART); }
 
 }

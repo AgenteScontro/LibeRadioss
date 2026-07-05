@@ -35,7 +35,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_submodel_build_(int *IFATHER, int *NOSUBMOD, int *LEVEL, int *OFFSETS, int *UID_SUB)
+CDECL void cpp_submodel_build(int *IFATHER, int *NOSUBMOD, int *LEVEL, int *OFFSETS, int *UID_SUB)
 {
     unsigned int submodelId;
     unsigned int fatherId;
@@ -118,14 +118,6 @@ CDECL void cpp_submodel_build_(int *IFATHER, int *NOSUBMOD, int *LEVEL, int *OFF
      }
 
 }
-CDECL void CPP_SUBMODEL_BUILD(int *IFATHER, int *NOSUBMOD, int *LEVEL, int *OFFSETS, int *UID_SUB)
-{cpp_submodel_build_ (IFATHER,NOSUBMOD,LEVEL,OFFSETS,UID_SUB);}
-
-CDECL void cpp_submodel_build__(int *IFATHER, int *NOSUBMOD, int *LEVEL, int *OFFSETS, int *UID_SUB)
-{cpp_submodel_build_ (IFATHER,NOSUBMOD,LEVEL,OFFSETS,UID_SUB);}
-
-CDECL void cpp_submodel_build(int *IFATHER, int *NOSUBMOD, int *LEVEL, int *OFFSETS, int *UID_SUB)
-{cpp_submodel_build_ (IFATHER,NOSUBMOD,LEVEL,OFFSETS,UID_SUB);}
 
 
 }

@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_tetra4_read_(int *IXS, int *NIXS, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
+CDECL void cpp_tetra4_read(int *IXS, int *NIXS, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/TETRA4");
     unsigned int partId = UINT_MAX, includeId = UINT_MAX, unitId = UINT_MAX;
@@ -84,16 +84,6 @@ CDECL void cpp_tetra4_read_(int *IXS, int *NIXS, int *NUMBRICK, int *IPARTS, int
         aNodeId.resize(0);
     }
 }
-
-
-CDECL void CPP_TETRA4_READ(int *IXS, int *NIXS, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_tetra4_read_ (IXS,NIXS,NUMBRICK,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_tetra4_read__(int *IXS, int *NIXS, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_tetra4_read_ (IXS,NIXS,NUMBRICK,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_tetra4_read(int *IXS, int *NIXS, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_tetra4_read_ (IXS,NIXS,NUMBRICK,IPARTS,SUBID_SOL);}
 
 
 }

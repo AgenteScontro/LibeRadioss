@@ -32,11 +32,9 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_convert_inter_type19(int *INTER_MAXID,int *GRNOD_MAXID,int *LINE_MAXID,int *OFFSET,int *isFirst)
+CDECL void cpp_add_rbody_main_node(int *addedNodeId)
 {
-// Convert entity
-    GlobalEntitySDIConvertInterType19(INTER_MAXID,GRNOD_MAXID,LINE_MAXID,OFFSET,isFirst);
+    GlobalEntitySDIRbodiesCreateMainNode(addedNodeId);
 }
-
 
 }

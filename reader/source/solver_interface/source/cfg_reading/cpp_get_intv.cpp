@@ -34,7 +34,7 @@
 extern "C" 
 {
 
-CDECL void cpp_get_intv_(char *attrib_key, int *s_attrib_key,int *value_int,int *sub_id, bool *AVAILABLE, int *valueType)
+CDECL void cpp_get_intv(char *attrib_key, int *s_attrib_key,int *value_int,int *sub_id, bool *AVAILABLE, int *valueType)
 {
 // Char fortran -> c++
     char *cname;
@@ -76,17 +76,8 @@ CDECL void cpp_get_intv_(char *attrib_key, int *s_attrib_key,int *value_int,int 
     free(cname);
 }
 
-CDECL void CPP_GET_INTV(char *attrib_key, int *s_attrib_key,int *value_int,int *sub_id, bool *AVAILABLE, int *valueType)
-{cpp_get_intv_ (attrib_key,s_attrib_key,value_int,sub_id,AVAILABLE,valueType);}
 
-CDECL void cpp_get_intv__(char *attrib_key, int *s_attrib_key,int *value_int,int *sub_id, bool *AVAILABLE, int *valueType)
-{cpp_get_intv_ (attrib_key,s_attrib_key,value_int,sub_id,AVAILABLE,valueType);}
-
-CDECL void cpp_get_intv(char *attrib_key, int *s_attrib_key,int *value_int,int *sub_id, bool *AVAILABLE, int *valueType)
-{cpp_get_intv_ (attrib_key,s_attrib_key,value_int,sub_id,AVAILABLE,valueType);}
-
-
-CDECL void cpp_get_intv_index_(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType)
+CDECL void cpp_get_intv_index(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType)
 {
 // Char fortran -> c++
     char *cname;
@@ -130,20 +121,8 @@ CDECL void cpp_get_intv_index_(char *attrib_key, int *s_attrib_key,int *value_in
     free(cname);
 }
 
-CDECL void CPP_GET_INTV_INDEX(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType)
-{cpp_get_intv_index_ (attrib_key,s_attrib_key,value_int,index1,sub_id,AVAILABLE,valueType);}
 
-CDECL void cpp_get_intv_index__(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType)
-{cpp_get_intv_index_ (attrib_key,s_attrib_key,value_int,index1,sub_id,AVAILABLE,valueType);}
-
-CDECL void cpp_get_intv_index(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType)
-{cpp_get_intv_index_ (attrib_key,s_attrib_key,value_int,index1,sub_id,AVAILABLE,valueType);}
-
-
-
-
-
-CDECL void cpp_get_intv_2index_(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType,int *index2)
+CDECL void cpp_get_intv_2index(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType,int *index2)
 {
 // Char fortran -> c++
     char *cname;
@@ -186,15 +165,6 @@ CDECL void cpp_get_intv_2index_(char *attrib_key, int *s_attrib_key,int *value_i
     if (strlen(objtype_str.c_str()) == 0 ) *valueType = 0;
     free(cname);
 }
-
-CDECL void CPP_GET_INTV_2INDEX(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType,int *index2)
-{cpp_get_intv_2index_ (attrib_key,s_attrib_key,value_int,index1,sub_id,AVAILABLE,valueType,index2);}
-
-CDECL void cpp_get_intv_2index__(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType,int *index2)
-{cpp_get_intv_2index_ (attrib_key,s_attrib_key,value_int,index1,sub_id,AVAILABLE,valueType,index2);}
-
-CDECL void cpp_get_intv_2index(char *attrib_key, int *s_attrib_key,int *value_int,int *index1,int *sub_id, bool *AVAILABLE, int *valueType,int *index2)
-{cpp_get_intv_2index_ (attrib_key,s_attrib_key,value_int,index1,sub_id,AVAILABLE,valueType,index2);}
 
 
 }

@@ -38,7 +38,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_beam_read_(int *IXP, int *NIXP, int *IPARTP, int *SUBID_BEAM, double *VX, double *VY, double *VZ)
+CDECL void cpp_beam_read(int *IXP, int *NIXP, int *IPARTP, int *SUBID_BEAM, double *VX, double *VY, double *VZ)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/BEAM");
     int i=0;
@@ -101,14 +101,6 @@ CDECL void cpp_beam_read_(int *IXP, int *NIXP, int *IPARTP, int *SUBID_BEAM, dou
     }
 }
 
-CDECL void CPP_BEAM_READ(int *IXP, int *NIXP, int *IPARTP, int *SUBID_BEAM, double *VX, double *VY, double *VZ)
-{cpp_beam_read_ (IXP,NIXP,IPARTP,SUBID_BEAM,VX,VY,VZ);}
-
-CDECL void cpp_beam_read__(int *IXP, int *NIXP, int *IPARTP, int *SUBID_BEAM, double *VX, double *VY, double *VZ)
-{cpp_beam_read_ (IXP,NIXP,IPARTP,SUBID_BEAM,VX,VY,VZ);}
-
-CDECL void cpp_beam_read(int *IXP, int *NIXP, int *IPARTP, int *SUBID_BEAM, double *VX, double *VY, double *VZ)
-{cpp_beam_read_ (IXP,NIXP,IPARTP,SUBID_BEAM,VX,VY,VZ);}
 
 }
 

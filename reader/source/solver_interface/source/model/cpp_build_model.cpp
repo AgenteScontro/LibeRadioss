@@ -49,43 +49,8 @@ static void ReportModelBuildException(const char* funcname)
 }
 
 
-
-//#include <vos/vosDynamicObject.h>
-//extern "C" vosResult vosres;
-//extern "C" vosDynamicObject loader;
-
-//extern "C" bool SupplyReaderFunctionTable(mxReaderFunctionTable* rft);
-//extern "C" ModelViewRead* RadiossblkReadModelEDIEDI(const char *filename);
-//extern "C" const map<int, vector<string>>& RadiossblkGetMessages();
-//extern "C" const char *RadiossblkGetVersion(unsigned int *pmajorVersion  = 0,
-//                                            unsigned int *pminorVersion  = 0,
-//                                            unsigned int *photfixVersion = 0,
-//                                            unsigned int *pbuildNumber   = 0);
-
-
-CDECL int cfgreader(char *modelfilename)
+static int cfgreader_inc(char *modelfilename, int *nbDynaIncludes,char *globalPath,int *globalPath_len)
 {
-        // load deck into the reader
-    ModelViewEdit *pModelViewSDI = NULL;
-    try
-    {
-        pModelViewSDI = RadiossblkReadModelSDI(modelfilename);
-        GlobalModelSDISetModel(pModelViewSDI);
-        g_pModelViewSDI = pModelViewSDI;
-
-    } catch(...) { ReportModelBuildException("cfgreader"); }
-
-    unsigned int majorVersion = 0, minorVersion = 0, hotfixVersion = 0, buildNumber = 0;
-
-    return 0;
-}
-
-
-CDECL int cfgreader_inc(char *modelfilename, int *nbDynaIncludes,char *globalPath,int *globalPath_len)
-{
-//
-// Dynamic load of library
-//
         // load deck into the reader
     try
     {
@@ -141,86 +106,14 @@ CDECL int cfgreader_inc(char *modelfilename, int *nbDynaIncludes,char *globalPat
 
     } catch(...) { ReportModelBuildException("cfgreader_inc"); }
 
-/*
-    // Get and print reader messages
-    const hwReaderMessageList& messages = RadiossblkGetMessages();
-    // ... messages with id
-    printf("Supported messages:\n");
-    for(hwReaderMessageList::const_iterator it=messages.begin(); it!=messages.end(); it++)
-    {
-        const hwReaderMessage &message = *it;
-        if(message.GetId() != 0)
-        {
-            switch(message.GetType())
-            {
-            case 0: printf("MESSAGE ID : %u\n", message.GetId()); break;
-            case 1: printf("WARNING ID : %u\n", message.GetId()); break;
-            default: printf("ERROR ID : %u\n", message.GetId()); break;
-            }
-            printf("%s\n", message.GetTitle().c_str());
-            printf("line %u in file %s\n",
-                       message.GetLinenumber(), message.GetFilename().c_str());
-            printf("DESCRIPTION :\n");
-            printf("%s\n", message.GetDescription().c_str());
-            if(!message.GetSolution().empty())
-            {
-                printf("%s\n", message.GetSolution().c_str());
-            }
-        }
-    }
-*/
-    // ... messages without id
-/*
-    printf("Unknown messages:\n");
-    for(hwReaderMessageList::const_iterator it=messages.begin(); it!=messages.end(); it++)
-    {
-        const hwReaderMessage &message = *it;
-        if(message.GetId() == 0)
-        {
-            printf("Message type %d: ", message.GetType());
-            printf("%s\n", message.GetDescription().c_str());
-            if(!message.GetSolution().empty())
-            {
-                printf("%s\n", message.GetSolution().c_str());
-            }
-        }
-    }
-*/
-
-    unsigned int majorVersion = 0, minorVersion = 0, hotfixVersion = 0, buildNumber = 0;
-
     return 0;
 }
 
 extern "C" 
 {
 
-void CDECL cpp_build_model_(char *name, int *size, int *res)
-{
-    char *cname;
-    int cname_len;
-    int i;
-    int ret_val;
 
-    cname_len = *size + 1;
-    cname=(char*) malloc(sizeof(char)*cname_len);
-    for(i=0;i<*size;i++)  cname[i] = name[i];
-    cname[*size]='\0'; 
-
-    *res = cfgreader(cname);
-}
-
-void CDECL CPP_BUILD_MODEL(char *name, int *size, int *res)
-{cpp_build_model_ (name, size, res);}
-
-void CDECL cpp_build_model__ (char *name, int *size, int *res)
-{cpp_build_model_ (name, size, res);}
-
-void  CDECL cpp_build_model (char *name, int *size, int *res)
-{cpp_build_model_ (name, size, res);}
-
-
-void CDECL cpp_build_model_inc_(char *name, int *size, int *res, int *nbDynaIncludes, char *GLOBAL_PATH, int *SGLOBAL_PATH)
+void CDECL cpp_build_model_inc(char *name, int *size, int *res, int *nbDynaIncludes, char *GLOBAL_PATH, int *SGLOBAL_PATH)
 {
     char *cname,*globalPath;
     int cname_len,globalPath_len;
@@ -243,16 +136,6 @@ void CDECL cpp_build_model_inc_(char *name, int *size, int *res, int *nbDynaIncl
 
     *res = cfgreader_inc(cname,nbDynaIncludes,globalPath,&globalPath_len);
 }
-
-void CDECL CPP_BUILD_MODEL_INC(char *name, int *size, int *res, int *nbDynaIncludes, char *GLOBAL_PATH, int *SGLOBAL_PATH)
-{cpp_build_model_inc_ (name, size, res,nbDynaIncludes,GLOBAL_PATH,SGLOBAL_PATH);}
-
-void CDECL cpp_build_model_inc__ (char *name, int *size, int *res, int *nbDynaIncludes, char *GLOBAL_PATH, int *SGLOBAL_PATH)
-{cpp_build_model_inc_ (name, size, res,nbDynaIncludes,GLOBAL_PATH,SGLOBAL_PATH);}
-
-void CDECL cpp_build_model_inc (char *name, int *size, int *res, int *nbDynaIncludes, char *GLOBAL_PATH, int *SGLOBAL_PATH)
-{cpp_build_model_inc_ (name, size, res,nbDynaIncludes,GLOBAL_PATH,SGLOBAL_PATH);}
-
 
 
 }

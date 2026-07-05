@@ -80,6 +80,7 @@ C     IXSP(1:KVOISPH,*)      :IVOIS  :   NOS DES VOISINS.
 C-----------------------------------------------
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE MY_ALLOC_MOD
       USE MESSAGE_MOD
       USE HM_OPTION_READ_MOD

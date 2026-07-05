@@ -34,7 +34,7 @@
 extern "C" 
 {
 
-CDECL void cpp_set_intv_(char *attrib_key, int *s_attrib_key,int *value_int, bool *AVAILABLE)
+CDECL void cpp_set_intv(char *attrib_key, int *s_attrib_key,int *value_int, bool *AVAILABLE)
 {
 // Char fortran -> c++
     char *cname;
@@ -50,15 +50,6 @@ CDECL void cpp_set_intv_(char *attrib_key, int *s_attrib_key,int *value_int, boo
     GlobalEntitySDISetValueInt(cname, value_int, AVAILABLE);
     free(cname);
 }
-
-CDECL void CPP_SET_INTV(char *attrib_key, int *s_attrib_key,int *value_int, bool *AVAILABLE)
-{cpp_set_intv_ (attrib_key,s_attrib_key,value_int,AVAILABLE);}
-
-CDECL void cpp_set_intv__(char *attrib_key, int *s_attrib_key,int *value_int, bool *AVAILABLE)
-{cpp_set_intv_ (attrib_key,s_attrib_key,value_int,AVAILABLE);}
-
-CDECL void cpp_set_intv(char *attrib_key, int *s_attrib_key,int *value_int, bool *AVAILABLE)
-{cpp_set_intv_ (attrib_key,s_attrib_key,value_int,AVAILABLE);}
 
 
 }

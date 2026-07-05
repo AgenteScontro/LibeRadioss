@@ -66,6 +66,7 @@ C     UNITAB       UNIT ARRAY
 C============================================================================
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE, INTRINSIC :: ISO_C_BINDING, ONLY: C_BOOL 
       USE UNITAB_MOD
       USE MESSAGE_MOD       

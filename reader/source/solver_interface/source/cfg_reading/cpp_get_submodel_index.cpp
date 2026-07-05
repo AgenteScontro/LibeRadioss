@@ -32,24 +32,13 @@
 extern "C" 
 {
 
-CDECL void cpp_get_submodel_index_(int *includeId)
+CDECL void cpp_get_submodel_index(int *includeId)
 {
     bool isOk = false;
     *includeId = 0;
 // Get Submodel Id
     GlobalEntitySDIGetSubmodelId(includeId, &isOk);
 }
-
-CDECL void CPP_GET_SUBMODEL_INDEX(int *includeId)
-{cpp_get_submodel_index_ (includeId);}
-
-CDECL void cpp_get_submodel_index__(int *includeId)
-{cpp_get_submodel_index_ (includeId);}
-
-CDECL void cpp_get_submodel_index(int *includeId)
-{cpp_get_submodel_index_ (includeId);}
-
-
 
 
 }

@@ -304,6 +304,8 @@ C     IS_ENCRYPTED   IS AT LEAST ONE LINE OF THE OPTION CRYPTED TRUE OR FALSE
 C============================================================================
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
+      USE, INTRINSIC :: ISO_C_BINDING, ONLY: C_BOOL
       USE MESSAGE_MOD       
       USE SUBMODEL_MOD
 C-----------------------------------------------
@@ -316,8 +318,14 @@ C-----------------------------------------------
 C OUTPUT ARGUMENTS
       LOGICAL,INTENT(OUT)::IS_ENCRYPTED
 C-----------------------------------------------
+C   L o c a l   V a r i a b l e s
+C-----------------------------------------------
+      LOGICAL(KIND=C_BOOL) :: C_IS_ENCRYPTED
+C-----------------------------------------------
       IS_ENCRYPTED   = .FALSE.
-      CALL CPP_OPTION_IS_CRYPTED(IS_ENCRYPTED) 
+      C_IS_ENCRYPTED = .FALSE.
+      CALL CPP_OPTION_IS_CRYPTED(C_IS_ENCRYPTED)
+      IS_ENCRYPTED = C_IS_ENCRYPTED 
       RETURN
 C
       END

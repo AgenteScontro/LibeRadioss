@@ -34,7 +34,7 @@
 extern "C" 
 {
 
-CDECL void cpp_get_float_array_(char *attrib_key, int *s_attrib_key,double *array_double, bool *AVAILABLE, 
+CDECL void cpp_get_float_array(char *attrib_key, int *s_attrib_key,double *array_double, bool *AVAILABLE, 
                      double *lengthDim, double *massDim, double *timeDim, int *uid, int *sub_id, int *index)
 {
 // Char fortran -> c++
@@ -60,21 +60,6 @@ CDECL void cpp_get_float_array_(char *attrib_key, int *s_attrib_key,double *arra
     free(cname);
 //    printf("value %s available = %f \n",attrib_key,*array_double);
 }
-
-CDECL void CPP_GET_FLOAT_ARRAY(char *attrib_key, int *s_attrib_key,double *array_double, bool *AVAILABLE, 
-                                double *lengthDim, double *massDim, double *timeDim,int *uid,int *sub_id, int *index)
-{cpp_get_float_array_ (attrib_key,s_attrib_key,array_double,AVAILABLE,lengthDim,massDim,timeDim,uid,sub_id,index);}
-
-CDECL void cpp_get_float_array__(char *attrib_key, int *s_attrib_key,double *array_double, bool *AVAILABLE, 
-                                double *lengthDim, double *massDim, double *timeDim,int *uid,int *sub_id, int *index)
-{cpp_get_float_array_ (attrib_key,s_attrib_key,array_double,AVAILABLE,lengthDim,massDim,timeDim,uid,sub_id,index);}
-
-CDECL void cpp_get_float_array(char *attrib_key, int *s_attrib_key,double *array_double, bool *AVAILABLE, 
-                                double *lengthDim, double *massDim, double *timeDim,int *uid,int *sub_id, int *index)
-{cpp_get_float_array_ (attrib_key,s_attrib_key,array_double,AVAILABLE,lengthDim,massDim,timeDim,uid,sub_id,index);}
-
-
-
 
 
 }

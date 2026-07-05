@@ -36,7 +36,7 @@ extern "C"
 {
 
 
-CDECL void cpp_elem_sub_tag_(int *elemType, int *TAGELEMSUB)
+CDECL void cpp_elem_sub_tag(int *elemType, int *TAGELEMSUB)
 {
     char* config ;     
 
@@ -100,13 +100,5 @@ CDECL void cpp_elem_sub_tag_(int *elemType, int *TAGELEMSUB)
     }
 }
 
-CDECL void CPP_ELEM_SUB_TAG(int *elemType, int *TAGELEMSUB)
-{cpp_elem_sub_tag_ (elemType, TAGELEMSUB);}
-
-CDECL void cpp_elem_sub_tag__(int *elemType,int *TAGELEMSUB)
-{cpp_elem_sub_tag_ (elemType, TAGELEMSUB);}
-
-CDECL void cpp_elem_sub_tag(int *elemType,int *TAGELEMSUB)
-{cpp_elem_sub_tag_ (elemType, TAGELEMSUB);}
 
 }

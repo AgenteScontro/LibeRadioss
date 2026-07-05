@@ -520,7 +520,7 @@ void printAllParameters(const char *outfilename)
 extern "C" 
 {
 
-CDECL void cpp_print_parameters_(char *name, int *size)
+CDECL void cpp_print_parameters(char *name, int *size)
 {
     char *cname;
     int cname_len;
@@ -534,19 +534,7 @@ CDECL void cpp_print_parameters_(char *name, int *size)
     printAllParameters(cname);
 }
 
-CDECL void CPP_PRINT_PARAMETERS(char *name, int *size)
-{cpp_print_parameters_ (name,size);}
-
-CDECL void cpp_print_parameters__ (char *name, int *size)
-{cpp_print_parameters_ (name,size);}
-
-CDECL void cpp_print_parameters (char *name, int *size)
-{cpp_print_parameters_ (name,size);}
-
 
 }
-
-
-
 
 

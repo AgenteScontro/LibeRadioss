@@ -32,18 +32,10 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_convert_tetra4_to_tetra10_(int *Itetra4ToConsider)
+CDECL void cpp_convert_tetra4_to_tetra10(int *Itetra4ToConsider)
 {
     GlobalEntitySDIConvertTetra4ToTetra10(Itetra4ToConsider);
 }
 
-CDECL void CPP_CONVERT_TETRA4_TO_TETRA10(int *Itetra4ToConsider)
-{cpp_convert_tetra4_to_tetra10_(Itetra4ToConsider);}
-
-CDECL void cpp_convert_tetra4_to_tetra10__(int *Itetra4ToConsider)
-{cpp_convert_tetra4_to_tetra10_(Itetra4ToConsider);}
-
-CDECL void cpp_convert_tetra4_to_tetra10(int *Itetra4ToConsider)
-{cpp_convert_tetra4_to_tetra10_(Itetra4ToConsider);}
 
 }

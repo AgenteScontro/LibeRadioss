@@ -38,7 +38,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_brick20_read_(int *IXS, int *NIXS,int *IXS20, int *NIXS20, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
+CDECL void cpp_brick20_read(int *IXS, int *NIXS,int *IXS20, int *NIXS20, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/BRIC20");
     unsigned int partId = UINT_MAX, includeId = UINT_MAX, unitId = UINT_MAX;
@@ -82,16 +82,6 @@ CDECL void cpp_brick20_read_(int *IXS, int *NIXS,int *IXS20, int *NIXS20, int *N
         aNodeId.resize(0);
     }
 }
-
-
-CDECL void CPP_BRICK20_READ(int *IXS, int *NIXS,int *IXS20, int *NIXS20, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_brick20_read_ (IXS,NIXS,IXS20,NIXS20,NUMBRICK,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_brick20_read__(int *IXS, int *NIXS,int *IXS20, int *NIXS20, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_brick20_read_ (IXS,NIXS,IXS20,NIXS20,NUMBRICK,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_brick20_read(int *IXS, int *NIXS,int *IXS20, int *NIXS20, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_brick20_read_ (IXS,NIXS,IXS20,NIXS20,NUMBRICK,IPARTS,SUBID_SOL);}
 
 
 }

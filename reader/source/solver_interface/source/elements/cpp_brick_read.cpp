@@ -38,7 +38,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_brick_read_(int *IXS, int *NIXS, int *IPARTS, int *SUBID_SOL)
+CDECL void cpp_brick_read(int *IXS, int *NIXS, int *IPARTS, int *SUBID_SOL)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/BRICK");
     unsigned int partId = UINT_MAX, includeId = UINT_MAX, unitId = UINT_MAX;
@@ -79,15 +79,6 @@ CDECL void cpp_brick_read_(int *IXS, int *NIXS, int *IPARTS, int *SUBID_SOL)
         i++;
     }
 }
-
-CDECL void CPP_BRICK_READ(int *IXS, int *NIXS, int *IPARTS, int *SUBID_SOL)
-{cpp_brick_read_ (IXS,NIXS,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_brick_read__(int *IXS, int *NIXS, int *IPARTS, int *SUBID_SOL)
-{cpp_brick_read_ (IXS,NIXS,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_brick_read(int *IXS, int *NIXS, int *IPARTS, int *SUBID_SOL)
-{cpp_brick_read_ (IXS,NIXS,IPARTS,SUBID_SOL);}
 
 
 }

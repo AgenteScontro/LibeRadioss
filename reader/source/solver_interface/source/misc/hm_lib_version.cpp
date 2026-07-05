@@ -33,9 +33,6 @@
 extern "C" {
 
 CDECL void hm_build_id(char *build_id,int *build_id_size, int *size);
-CDECL void hm_build_id_(char *build_id,int *build_id_size, int *size);
-CDECL void hm_build_id__(char *build_id,int *build_id_size, int *size);
-CDECL void _FCALL HM_BUILD_ID (char *build_id,int *build_id_size, int *size);
 
 // New library ID : Date_Git_Short_Sha1
 
@@ -67,25 +64,5 @@ CDECL void hm_build_id(char *build_id,int *build_id_size, int *size){
   }
 }
 
-CDECL void hm_build_id_(char *build_id,int *build_id_size, int *size){
-  // char* build_id:     output string recieving the Build_ID
-  // int* build_id_size: input size of build_id_size
-  // int *size : output size of copied string
-  hm_build_id(build_id,build_id_size,size);
-}
-
-CDECL void hm_build_id__(char *build_id,int *build_id_size, int *size){
-  // char* build_id:     output string recieving the Build_ID
-  // int* build_id_size: input size of build_id_size
-  // int *size : output size of copied string
-  hm_build_id(build_id,build_id_size,size);
-}
-
-CDECL void _FCALL HM_BUILD_ID (char *build_id,int *build_id_size, int *size){
-  // char* build_id:     output string recieving the Build_ID
-  // int* build_id_size: input size of build_id_size
-  // int *size : output size of copied string
-  hm_build_id(build_id,build_id_size,size);
-}
 
 }

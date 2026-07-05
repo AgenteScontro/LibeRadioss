@@ -64,6 +64,7 @@ C     LSUBMODEL       SUBMODEL STRUCTURE
 C-----------------------------------------------
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE MESSAGE_MOD
       USE SUBMODEL_MOD
       use element_mod , only : nixs
@@ -876,6 +877,7 @@ C
 C-----------------------------------------------
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE MESSAGE_MOD
       USE SUBMODEL_MOD , ONLY : NSUBMOD, SUBMODEL_DATA
       USE READER_OLD_MOD , ONLY : LINE

@@ -194,6 +194,8 @@ C     LSUBMODEL    SUBMODEL STRUCTURE
 C============================================================================
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
+      USE, INTRINSIC :: ISO_C_BINDING, ONLY: C_BOOL
       USE MESSAGE_MOD       
       USE SUBMODEL_MOD
 C-----------------------------------------------
@@ -213,13 +215,19 @@ C OUTPUT ARGUMENTS
 C-----------------------------------------------
 C   L o c a l   V a r i a b l e s
 C-----------------------------------------------
+      LOGICAL(KIND=C_BOOL) :: C_IS_AVAILABLE
+C-----------------------------------------------
+C   L o c a l   V a r i a b l e s
+C-----------------------------------------------
       INTEGER VALUE_TYPE, SUB_ID
 C--------------------------------------------------
       VALUE_TYPE = 0
       SUB_ID = 0
 C--------------------------------------------------
+      C_IS_AVAILABLE = .FALSE.
       CALL CPP_GET_INTV_INDEX(NAME(1:LEN_TRIM(NAME)),LEN_TRIM(NAME),IVAL,INDEX,SUB_ID,
-     .                        IS_AVAILABLE,VALUE_TYPE)
+     .                        C_IS_AVAILABLE,VALUE_TYPE)
+      IS_AVAILABLE = C_IS_AVAILABLE
 C--------------------------------------------------
       RETURN
 C

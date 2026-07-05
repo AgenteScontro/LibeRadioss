@@ -928,6 +928,7 @@ Copyright>        commercial version may interest you: https://www.altair.com/ra
      .                  C5    ,C6    ,C7    ,C8    ,C9    ,
      .                  PRMODE )
 c     .                  PRMODE,IOPTION, IOPTION_TYPE) 
+      USE READER_INTERFACE_MOD
       USE MESSAGE_MOD2
       use my_alloc_mod
 C-----------------------------------------------

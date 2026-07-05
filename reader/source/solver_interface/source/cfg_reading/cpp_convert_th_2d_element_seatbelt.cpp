@@ -31,20 +31,11 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_convert_th_2d_element_seatbelt_(int *TH_MAXID,int *OFFSET,int *SEATBELT_CONVERTED_ELEMENTS,int *NB_SEATBELT_SHELLS)
+CDECL void cpp_convert_th_2d_element_seatbelt(int *TH_MAXID,int *OFFSET,int *SEATBELT_CONVERTED_ELEMENTS,int *NB_SEATBELT_SHELLS)
 {
 // Convert entity
     GlobalEntitySDIConvertTh2dElementSeatbelt(TH_MAXID,OFFSET,SEATBELT_CONVERTED_ELEMENTS,NB_SEATBELT_SHELLS);
 }
-
-CDECL void CPP_CONVERT_TH_2D_ELEMENT_SEATBELT(int *TH_MAXID,int *OFFSET,int *SEATBELT_CONVERTED_ELEMENTS,int *NB_SEATBELT_SHELLS)
-{cpp_convert_th_2d_element_seatbelt_ (TH_MAXID,OFFSET,SEATBELT_CONVERTED_ELEMENTS,NB_SEATBELT_SHELLS);}
-
-CDECL void cpp_convert_th_2d_element_seatbelt__(int *TH_MAXID,int *OFFSET,int *SEATBELT_CONVERTED_ELEMENTS,int *NB_SEATBELT_SHELLS)
-{cpp_convert_th_2d_element_seatbelt_ (TH_MAXID,OFFSET,SEATBELT_CONVERTED_ELEMENTS,NB_SEATBELT_SHELLS);}
-
-CDECL void cpp_convert_th_2d_element_seatbelt(int *TH_MAXID,int *OFFSET,int *SEATBELT_CONVERTED_ELEMENTS,int *NB_SEATBELT_SHELLS)
-{cpp_convert_th_2d_element_seatbelt_ (TH_MAXID,OFFSET,SEATBELT_CONVERTED_ELEMENTS,NB_SEATBELT_SHELLS);}
 
 
 }

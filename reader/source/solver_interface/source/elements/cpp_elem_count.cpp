@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_elem_count_(char *elemType, int *s_elemType, int *nbElems, int *isDyna)
+CDECL void cpp_elem_count(char *elemType, int *s_elemType, int *nbElems, int *isDyna)
 { 
 // Char fortran -> c++
     char *cname;
@@ -167,14 +167,7 @@ CDECL void cpp_elem_count_(char *elemType, int *s_elemType, int *nbElems, int *i
 //    if (strncmp(cname,"",1) == 0 )   config = Element::HW_ELEMENT_CONFIG_PENTA15;    
     
 }
-CDECL void CPP_ELEM_COUNT(char *elemType, int *s_elemType, int *nbElems, int *isDyna)
-{cpp_elem_count_ (elemType,s_elemType,nbElems,isDyna);}
 
-CDECL void cpp_elem_count__ (char *elemType, int *s_elemType, int *nbElems, int *isDyna)
-{cpp_elem_count_ (elemType,s_elemType,nbElems,isDyna);}
-
-CDECL void cpp_elem_count (char *elemType, int *s_elemType, int *nbElems, int *isDyna)
-{cpp_elem_count_ (elemType,s_elemType,nbElems,isDyna);}
 
 }
 

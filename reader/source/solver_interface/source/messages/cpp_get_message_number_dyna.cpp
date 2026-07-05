@@ -36,7 +36,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_get_message_number_dyna_(int *NBMESSAGES)
+CDECL void cpp_get_message_number_dyna(int *NBMESSAGES)
 {
     const hwReaderMessageList& messages = DynakeyGetMessages();
     for(hwReaderMessageList::const_iterator it=messages.begin(); it!=messages.end(); it++)
@@ -45,17 +45,6 @@ CDECL void cpp_get_message_number_dyna_(int *NBMESSAGES)
         *NBMESSAGES = *NBMESSAGES + 1;
     }
 }
-
-
-CDECL void CPP_GET_MESSAGE_NUMBER_DYNA(int *NBMESSAGES)
-{cpp_get_message_number_dyna_ (NBMESSAGES);}
-
-CDECL void cpp_get_message_number_dyna__ (int *NBMESSAGES)
-{cpp_get_message_number_dyna_ (NBMESSAGES);}
-
-CDECL void cpp_get_message_number_dyna (int *NBMESSAGES)
-{cpp_get_message_number_dyna_ (NBMESSAGES);}
-
 
 
 }

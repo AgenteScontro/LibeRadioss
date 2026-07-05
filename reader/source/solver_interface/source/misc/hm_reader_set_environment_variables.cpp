@@ -51,30 +51,12 @@ extern "C" CDECL  const char *RadiossblkGetVersion(unsigned int *pmajorVersion  
                                                    unsigned int *pbuildNumber   = 0);
 
 
-
-
-#define _FCALL 
 void seek_env_variable(char ** variable, char * varname);
 void set_env_variable(char *variable,char *value);
 int int_hm_reader_variables(int *codvers);
 extern "C" {
 
      CDECL void hm_reader_variables(int * result,int *codvers)
-     {   
-      *result = int_hm_reader_variables(codvers);
-     }
-
-     CDECL void hm_reader_variables_(int * result,int *codvers)
-     {
-      *result = int_hm_reader_variables(codvers);
-     }
-
-     CDECL void hm_reader_variables__(int * result,int *codvers)
-     {
-      *result = int_hm_reader_variables(codvers);
-     }
-
-     CDECL void _FCALL HM_READER_VARIABLES(int * result,int *codvers)
      {
       *result = int_hm_reader_variables(codvers);
      }
@@ -218,7 +200,6 @@ RadiossblkSetUserProfileVersion(pmajorVersion);
   }
   return error;
 }
-
 
 
 /* ------------------------------------------------------------------------------------------------

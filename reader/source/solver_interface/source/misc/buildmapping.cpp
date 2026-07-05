@@ -241,62 +241,14 @@ void PrintLog(const char *outfilename)
     logFile.close();
 
 
-
 //  g_dyna2rad.clear();
 }
 
 extern "C" 
 {
 
-CDECL void cpp_find_dyna_(char *name, int *size, int *id, char *TEXT, int *STEXT)
-{
-    char *cname;
-    int cname_len;
-    int i;
-    cname_len = *size + 1;
-    cname=(char*) malloc(sizeof(char)*cname_len);
-    for(i=0;i<*size;i++){
-      cname[i] = name[i];
-    }
-    cname[*size]='\0';
 
-    //ofstream logFile;
-    //logFile.open("ConversionMessage.txt");
-    //logFile << "************************************************************************\n";
-    //logFile << "*KEYWORD MAPPING TO RADIOSS PROCESS \n";
-    //logFile << "************************************************************************\n\n";
-
-
-    // Define key to look for in the hash table
-    std::string sname;
-    sname.assign(cname,(*size));
-    MappingKey key = std::make_pair(*id,sname);
-
-    auto got = g_rad2dyna.find(key);
-    if( got == g_rad2dyna.end() )
-    {
-       cout<<"Error "<<sname<<" Not found"<<endl; 
-
-    }else{
-      auto id = get<0>(got->second);
-      auto keyword = get<1>(got->second).c_str();
-      auto name = get<2>(got->second).c_str();
-      sprintf(TEXT,"From: %s (%d) %s",keyword,id,name,'\0');
-      *STEXT = strlen(TEXT);
-    }
-}
-
-CDECL void CPP_FIND_DYNA(char *name, int *size, int *id, char *TEXT, int *STEXT)
-{cpp_find_dyna_ (name,size,id,TEXT,STEXT);}
-
-CDECL void cpp_find_dyna__ (char *name, int *size, int *id, char *TEXT, int *STEXT)
-{cpp_find_dyna_ (name,size,id,TEXT,STEXT);}
-
-CDECL void cpp_find_dyna (char *name, int *size, int *id, char *TEXT, int *STEXT)
-{cpp_find_dyna_ (name,size,id,TEXT,STEXT);}
-
-
-CDECL void cpp_print_dyna_(char *name, int *size)
+CDECL void cpp_print_dyna(char *name, int *size)
 {
     char *cname;
     int cname_len;
@@ -311,21 +263,12 @@ CDECL void cpp_print_dyna_(char *name, int *size)
 
 }
 
-CDECL void CPP_PRINT_DYNA(char *name, int *size)
-{cpp_print_dyna_ (name,size);}
-
-CDECL void cpp_print_dyna__ (char *name, int *size)
-{cpp_print_dyna_ (name,size);}
-
-CDECL void cpp_print_dyna (char *name, int *size)
-{cpp_print_dyna_ (name,size);}
-
 
 /* --------------------------------------------------------
     Interrogates the dyna Hashtable Radioss -> Dyna Option 
     Dedicated for Message writing
    -------------------------------------------------------- */
-CDECL void cpp_find_dyna_mess_(char *name, int *size, int *id, char *Option, int *SOption,int *ncount,char * Title, int *STitle)
+CDECL void cpp_find_dyna_mess(char *name, int *size, int *id, char *Option, int *SOption,int *ncount,char * Title, int *STitle)
 {
     char *cname;
     int cname_len;
@@ -436,17 +379,6 @@ CDECL void cpp_find_dyna_mess_(char *name, int *size, int *id, char *Option, int
 
 
 }
-
-CDECL void CPP_FIND_DYNA_MESS(char *name, int *size, int *id, char *Option, int *SOption,int *ID,char * Title, int *STitle)
-{cpp_find_dyna_mess_ (name,size,id, Option, SOption, ID,Title,STitle);}
-
-CDECL void cpp_find_dyna__mess__ (char *name, int *size, int *id, char *Option, int *SOption,int *ID,char * Title, int *STitle)
-{cpp_find_dyna_mess_ (name,size,id, Option, SOption, ID,Title,STitle);}
-
-CDECL void cpp_find_dyna_mess (char *name, int *size, int *id, char *Option, int *SOption,int *ID,char * Title, int *STitle)
-{cpp_find_dyna_mess_ (name,size,id, Option, SOption, ID,Title,STitle);}
-
-
 
 
 }

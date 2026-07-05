@@ -33,7 +33,7 @@
 extern "C" 
 {
 
-CDECL void cpp_get_boolv_(char *attrib_key, int *s_attrib_key,bool *value_bool, bool *AVAILABLE)
+CDECL void cpp_get_boolv(char *attrib_key, int *s_attrib_key,bool *value_bool, bool *AVAILABLE)
 {
 // Char fortran -> c++
     char *cname;
@@ -55,15 +55,6 @@ CDECL void cpp_get_boolv_(char *attrib_key, int *s_attrib_key,bool *value_bool, 
     }
     free(cname);
 }
-
-CDECL void CPP_GET_BOOLV(char *attrib_key, int *s_attrib_key, bool *value_bool, bool *AVAILABLE)
-{cpp_get_boolv_ (attrib_key,s_attrib_key,value_bool,AVAILABLE);}
-
-CDECL void cpp_get_boolv__(char *attrib_key, int *s_attrib_key, bool *value_bool, bool *AVAILABLE)
-{cpp_get_boolv_ (attrib_key,s_attrib_key,value_bool,AVAILABLE);}
-
-CDECL void cpp_get_boolv(char *attrib_key, int *s_attrib_key, bool *value_bool, bool *AVAILABLE)
-{cpp_get_boolv_ (attrib_key,s_attrib_key,value_bool,AVAILABLE);}
 
 
 }

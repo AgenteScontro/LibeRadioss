@@ -30,7 +30,7 @@
 extern "C" 
 {
 
-CDECL void cpp_group_is_used_(char *attrib_key, int *s_attrib_key, int *id, bool *isUsed)
+CDECL void cpp_group_is_used(char *attrib_key, int *s_attrib_key, int *id, bool *isUsed)
 {
 // Char fortran -> c++
     char *cname;
@@ -44,15 +44,6 @@ CDECL void cpp_group_is_used_(char *attrib_key, int *s_attrib_key, int *id, bool
     *isUsed = false;
     GlobalModelSDIIsGroupUsed(cname,id,isUsed);
 }
-
-CDECL void CPP_GROUP_IS_USED(char *attrib_key, int *s_attrib_key, int *id, bool *isUsed)
-{cpp_group_is_used_ (attrib_key,s_attrib_key,id,isUsed);}
-
-CDECL void cpp_group_is_used__(char *attrib_key, int *s_attrib_key, int *id, bool *isUsed)
-{cpp_group_is_used_ (attrib_key,s_attrib_key,id,isUsed);}
-
-CDECL void cpp_group_is_used(char *attrib_key, int *s_attrib_key, int *id, bool *isUsed)
-{cpp_group_is_used_ (attrib_key,s_attrib_key,id,isUsed);}
 
 
 }

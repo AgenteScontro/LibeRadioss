@@ -54,6 +54,7 @@ C     KEYWORD4        OPTIONAL : KEYWORD4 OF THE OPTION
 C============================================================================
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE MESSAGE_MOD
       USE NAMES_AND_TITLES_MOD , ONLY : NCHARLINE, NCHARTITLE, NCHARKEY
 C-----------------------------------------------

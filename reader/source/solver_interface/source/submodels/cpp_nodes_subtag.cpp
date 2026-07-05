@@ -35,7 +35,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_node_sub_tag_(int *TAGNODSUB)
+CDECL void cpp_node_sub_tag(int *TAGNODSUB)
 {
     SelectionRead nodes(g_pModelViewSDI,"/NODE");
     unsigned int submodelId=0;
@@ -91,17 +91,8 @@ CDECL void cpp_node_sub_tag_(int *TAGNODSUB)
     }
 }
 
-CDECL void CPP_NODE_SUB_TAG(int *TAGNODSUB)
-{cpp_node_sub_tag_ (TAGNODSUB);}
 
-CDECL void c_node_sub_tag__(int *TAGNODSUB)
-{cpp_node_sub_tag_ (TAGNODSUB);}
-
-CDECL void c_node_sub_tag(int *TAGNODSUB)
-{cpp_node_sub_tag_ (TAGNODSUB);}
-
-
-CDECL void cpp_node_sub_tag_dyna_(int *TAGNODSUB, int *IDNOD)
+CDECL void cpp_node_sub_tag_dyna(int *TAGNODSUB, int *IDNOD)
 {
     SelectionNodeRead nodes(g_pModelViewSDI, "/NODE");
     unsigned int submodelId=0;
@@ -132,15 +123,6 @@ CDECL void cpp_node_sub_tag_dyna_(int *TAGNODSUB, int *IDNOD)
         i++;
     }
 }
-
-CDECL void CPP_NODE_SUB_TAG_DYNA(int *TAGNODSUB, int *IDNOD)
-{cpp_node_sub_tag_dyna_ (TAGNODSUB,IDNOD);}
-
-CDECL void c_node_sub_tag_dyna__(int *TAGNODSUB, int *IDNOD)
-{cpp_node_sub_tag_dyna_ (TAGNODSUB,IDNOD);}
-
-CDECL void c_node_sub_tag_dyna(int *TAGNODSUB, int *IDNOD)
-{cpp_node_sub_tag_dyna_ (TAGNODSUB,IDNOD);}
 
 
 }

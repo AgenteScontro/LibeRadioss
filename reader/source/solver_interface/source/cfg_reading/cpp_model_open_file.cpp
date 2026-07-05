@@ -31,19 +31,10 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_model_open_file_(char *fileName,int *s_fileName)
+CDECL void cpp_model_open_file(char *fileName,int *s_fileName)
 {
      GlobalModelOpenFile(fileName,s_fileName);
 }
-
-CDECL void CPP_MODEL_OPEN_FILE(char *fileName,int *s_fileName)
-{cpp_model_open_file_ (fileName,s_fileName);}
-
-CDECL void cpp_model_open_file__(char *fileName,int *s_fileName)
-{cpp_model_open_file_ (fileName,s_fileName);}
-
-CDECL void cpp_model_open_file(char *fileName,int *s_fileName)
-{cpp_model_open_file_ (fileName,s_fileName);}
 
 
 }

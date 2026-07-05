@@ -32,21 +32,11 @@
 extern "C" 
 {
 
-CDECL void cpp_option_next_()
+CDECL void cpp_option_next()
 {
     bool isOk=false;
     GlobalModelSDISelectionNext(&isOk);
 }
-
-CDECL void CPP_OPTION_NEXT()
-{cpp_option_next_ ();}
-
-CDECL void cpp_option_next__()
-{cpp_option_next_ ();}
-
-CDECL void cpp_option_next()
-{cpp_option_next_ ();}
-
 
 
 }

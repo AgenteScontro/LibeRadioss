@@ -57,6 +57,7 @@ C     HM_ELEM_NUMBER   NUMBER OF OCCURRENCES
 C============================================================================
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE MESSAGE_MOD       
       USE SUBMODEL_MOD
 C-----------------------------------------------

@@ -115,8 +115,9 @@ extern "C"
 //     and return
 // =============================================================================
 
-CDECL void cpp_sale_mesh_create_(int *message_value)
+CDECL void cpp_sale_mesh_create(int *message_value)
 {
+    printf(" ** WARNING: cpp_sale_mesh_create reached but not implemented (open_reader)\n");
     // TODO(open_reader): implement full S-ALE mesh creation pipeline.
     // For now, set error code to indicate the feature is not implemented.
     // message_value[38] = some_error_code;  // "not implemented" error
@@ -128,13 +129,5 @@ CDECL void cpp_sale_mesh_create_(int *message_value)
     // created_nodes_nb[18], element_offset[40], node_offset[41].
 }
 
-CDECL void CPP_SALE_MESH_CREATE(int *message_value)
-{ cpp_sale_mesh_create_(message_value); }
-
-CDECL void cpp_sale_mesh_create__(int *message_value)
-{ cpp_sale_mesh_create_(message_value); }
-
-CDECL void cpp_sale_mesh_create(int *message_value)
-{ cpp_sale_mesh_create_(message_value); }
 
 }

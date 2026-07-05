@@ -38,7 +38,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_shell_read_(int *IXC, int *NIXC, int *IPARTC, double *ANGLE, double *THK, int *SUBID_SHELL, int *UID_SHELL)
+CDECL void cpp_shell_read(int *IXC, int *NIXC, int *IPARTC, double *ANGLE, double *THK, int *SUBID_SHELL, int *UID_SHELL)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/SHELL");
     int i=0;
@@ -99,16 +99,6 @@ CDECL void cpp_shell_read_(int *IXC, int *NIXC, int *IPARTC, double *ANGLE, doub
             i++;
         }
 } 
-
-CDECL void CPP_SHELL_READ(int *IXC, int *NIXC, int *IPARTC, double *ANGLE, double *THK, int *SUBID_SHELL, int *UID_SHELL)
-{cpp_shell_read_ (IXC,NIXC,IPARTC,ANGLE,THK,SUBID_SHELL,UID_SHELL);}
-
-CDECL void cpp_shell_read__(int *IXC, int *NIXC, int *IPARTC, double *ANGLE, double *THK, int *SUBID_SHELL, int *UID_SHELL)
-{cpp_shell_read_ (IXC,NIXC,IPARTC,ANGLE,THK,SUBID_SHELL,UID_SHELL);}
-
-CDECL void cpp_shell_read(int *IXC, int *NIXC, int *IPARTC, double *ANGLE, double *THK, int *SUBID_SHELL, int *UID_SHELL)
-{cpp_shell_read_ (IXC,NIXC,IPARTC,ANGLE,THK,SUBID_SHELL,UID_SHELL);}
-
 
 
 }

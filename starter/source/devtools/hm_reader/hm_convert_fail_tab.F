@@ -50,6 +50,7 @@ C     LSUBMODEL     SUBMODEL STRUCTURE
 C============================================================================
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE MESSAGE_MOD       
       USE SUBMODEL_MOD
       USE HM_OPTION_READ_MOD
@@ -80,7 +81,7 @@ C-----------------------------------------------
      .                          KEYWORD2    = KEY )
         OFFSET = 0
         IF ((KEY /= 'TAB1').AND.(KEY /= 'TAB2')) THEN
-          CALL CPP_CONVERT_FAIL_TAB(TABLE_MAXID,FAIL_MAXID,OFFSET,ISFIRST)
+          CALL CPP_CONVERT_FAIL_TAB(TABLE_MAXID,FAIL_MAXID,OFFSET)
           IS_CONVERT = 1
         ENDIF
       ENDDO

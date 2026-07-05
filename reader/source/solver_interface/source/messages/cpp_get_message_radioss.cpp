@@ -34,7 +34,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_get_message_radioss_(int *I, int *MSG_ID, int *MSG_TYPE, char *MSG_DESCR, char *FILE_NAME, int *LINE_NB, char *MSG_BLOCK, char *MSG_LINE)
+CDECL void cpp_get_message_radioss(int *I, int *MSG_ID, int *MSG_TYPE, char *MSG_DESCR, char *FILE_NAME, int *LINE_NB, char *MSG_BLOCK, char *MSG_LINE)
 {
     
     // Get reader message
@@ -80,16 +80,6 @@ CDECL void cpp_get_message_radioss_(int *I, int *MSG_ID, int *MSG_TYPE, char *MS
     }
 */
 }
-
-CDECL void CPP_GET_MESSAGE_RADIOSS(int *I, int *MSG_ID, int *MSG_TYPE, char *MSG_DESCR, char *FILE_NAME, int *LINE_NB, char *MSG_BLOCK, char *MSG_LINE)
-{cpp_get_message_radioss_ (I,MSG_ID,MSG_TYPE,MSG_DESCR,FILE_NAME,LINE_NB,MSG_BLOCK,MSG_LINE);}
-
-CDECL void cpp_get_message_radioss__ (int *I, int *MSG_ID, int *MSG_TYPE, char *MSG_DESCR, char *FILE_NAME, int *LINE_NB, char *MSG_BLOCK, char *MSG_LINE)
-{cpp_get_message_radioss_ (I,MSG_ID,MSG_TYPE,MSG_DESCR,FILE_NAME,LINE_NB,MSG_BLOCK,MSG_LINE);}
-
-CDECL void cpp_get_message_radioss (int *I, int *MSG_ID, int *MSG_TYPE, char *MSG_DESCR, char *FILE_NAME, int *LINE_NB, char *MSG_BLOCK, char *MSG_LINE)
-{cpp_get_message_radioss_ (I,MSG_ID,MSG_TYPE,MSG_DESCR,FILE_NAME,LINE_NB,MSG_BLOCK,MSG_LINE);}
-
 
 
 }

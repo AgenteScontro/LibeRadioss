@@ -32,7 +32,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_option_count_(char *ENTITY_TYPE, int *S_ENTITY_TYPE, int *HM_OPTION_NUMBER)
+CDECL void cpp_option_count(char *ENTITY_TYPE, int *S_ENTITY_TYPE, int *HM_OPTION_NUMBER)
 {
 // Char fortran -> c++
     char *cname;
@@ -322,15 +322,6 @@ CDECL void cpp_option_count_(char *ENTITY_TYPE, int *S_ENTITY_TYPE, int *HM_OPTI
         free(cname);
 //    printf("nb option : %d \n",*HM_OPTION_NUMBER);
 }
-
-CDECL void CPP_OPTION_COUNT(char *ENTITY_TYPE, int *S_ENTITY_TYPE, int *HM_OPTION_NUMBER)
-{cpp_option_count_ (ENTITY_TYPE,S_ENTITY_TYPE, HM_OPTION_NUMBER);}
-
-CDECL void cpp_option_count__(char *ENTITY_TYPE, int *S_ENTITY_TYPE, int *HM_OPTION_NUMBER)
-{cpp_option_count_ (ENTITY_TYPE,S_ENTITY_TYPE, HM_OPTION_NUMBER);}
-
-CDECL void cpp_option_count(char *ENTITY_TYPE, int *S_ENTITY_TYPE, int *HM_OPTION_NUMBER)
-{cpp_option_count_ (ENTITY_TYPE,S_ENTITY_TYPE, HM_OPTION_NUMBER);}
 
 
 }

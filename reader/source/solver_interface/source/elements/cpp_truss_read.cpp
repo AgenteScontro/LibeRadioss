@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_truss_read_(int *IXT, int *NIXT,int *IPARTR, int *SUBID_TRUSS)
+CDECL void cpp_truss_read(int *IXT, int *NIXT,int *IPARTR, int *SUBID_TRUSS)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/TRUSS");
     int i=0;
@@ -76,15 +76,6 @@ CDECL void cpp_truss_read_(int *IXT, int *NIXT,int *IPARTR, int *SUBID_TRUSS)
         aNodeId.resize(0);
     }
 }
-
-CDECL void CPP_TRUSS_READ(int *IXT, int *NIXT, int *IPARTR, int *SUBID_TRUSS)
-{cpp_truss_read_ (IXT,NIXT,IPARTR,SUBID_TRUSS);}
-
-CDECL void cpp_truss_read__(int *IXT, int *NIXT, int *IPARTR, int *SUBID_TRUSS)
-{cpp_truss_read_ (IXT,NIXT,IPARTR,SUBID_TRUSS);}
-
-CDECL void cpp_truss_read(int *IXT, int *NIXT, int *IPARTR, int *SUBID_TRUSS)
-{cpp_truss_read_ (IXT,NIXT,IPARTR,SUBID_TRUSS);}
 
 
 }

@@ -32,7 +32,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_option_start_(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
+CDECL void cpp_option_start(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
 {
 // Char fortran -> c++
     char *cname;
@@ -312,17 +312,8 @@ CDECL void cpp_option_start_(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
     //if (strncmp(cname,"ADEFINIR",8) == 0 )GlobalModelSelectionStart(ENTITY_TYPE_ALLOC_MAX)*/
 }
 
-CDECL void CPP_OPTION_START(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
-{cpp_option_start_ (ENTITY_TYPE,S_ENTITY_TYPE);}
 
-CDECL void cpp_option_start__(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
-{cpp_option_start_ (ENTITY_TYPE,S_ENTITY_TYPE);}
-
-CDECL void cpp_option_start(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
-{cpp_option_start_ (ENTITY_TYPE,S_ENTITY_TYPE);}
-
-
-CDECL void cpp_option_start_list_(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
+CDECL void cpp_option_start_list(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
 {
 // Char fortran -> c++
     char *cname;
@@ -346,19 +337,7 @@ CDECL void cpp_option_start_list_(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
 //
 }
 
-CDECL void CPP_OPTION_START_LIST(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
-{cpp_option_start_list_ (ENTITY_TYPE,S_ENTITY_TYPE);}
-
-CDECL void cpp_option_start_list__(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
-{cpp_option_start_list_ (ENTITY_TYPE,S_ENTITY_TYPE);}
-
-CDECL void cpp_option_start_list(char *ENTITY_TYPE, int *S_ENTITY_TYPE)
-{cpp_option_start_list_ (ENTITY_TYPE,S_ENTITY_TYPE);}
-
-
 
 }
-
-
 
 

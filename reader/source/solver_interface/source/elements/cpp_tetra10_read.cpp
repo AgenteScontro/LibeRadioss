@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_tetra10_read_(int *IXS, int *NIXS,int *IXS10, int *NIXS10, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
+CDECL void cpp_tetra10_read(int *IXS, int *NIXS,int *IXS10, int *NIXS10, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/TETRA10");
     unsigned int partId = UINT_MAX, includeId = UINT_MAX, unitId = UINT_MAX;
@@ -81,16 +81,6 @@ CDECL void cpp_tetra10_read_(int *IXS, int *NIXS,int *IXS10, int *NIXS10, int *N
         aNodeId.resize(0);
     }
 }
-
-
-CDECL void CPP_TETRA10_READ(int *IXS, int *NIXS,int *IXS10, int *NIXS10, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_tetra10_read_ (IXS,NIXS,IXS10,NIXS10,NUMBRICK,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_tetra10_read__(int *IXS, int *NIXS,int *IXS10, int *NIXS10, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_tetra10_read_ (IXS,NIXS,IXS10,NIXS10,NUMBRICK,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_tetra10_read(int *IXS, int *NIXS,int *IXS10, int *NIXS10, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_tetra10_read_ (IXS,NIXS,IXS10,NIXS10,NUMBRICK,IPARTS,SUBID_SOL);}
 
 
 }

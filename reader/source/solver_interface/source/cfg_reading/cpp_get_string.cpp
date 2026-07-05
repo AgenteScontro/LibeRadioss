@@ -33,7 +33,7 @@
 extern "C" 
 {
 
-CDECL void cpp_get_string_(char *attrib_key, int *s_attrib_key, char *value_string, int *size, bool *AVAILABLE)
+CDECL void cpp_get_string(char *attrib_key, int *s_attrib_key, char *value_string, int *size, bool *AVAILABLE)
 {
 // Char fortran -> c++
     char *cname;
@@ -52,17 +52,8 @@ CDECL void cpp_get_string_(char *attrib_key, int *s_attrib_key, char *value_stri
     free(cname);
 }
 
-CDECL void CPP_GET_STRING(char *attrib_key, int *s_attrib_key, char *value_string, int *size, bool *AVAILABLE)
-{cpp_get_string_ (attrib_key,s_attrib_key,value_string,size,AVAILABLE);}
 
-CDECL void cpp_get_string__(char *attrib_key, int *s_attrib_key, char *value_string, int *size, bool *AVAILABLE)
-{cpp_get_string_ (attrib_key,s_attrib_key,value_string,size,AVAILABLE);}
-
-CDECL void cpp_get_string(char *attrib_key, int *s_attrib_key, char *value_string, int *size, bool *AVAILABLE)
-{cpp_get_string_ (attrib_key,s_attrib_key,value_string,size,AVAILABLE);}
-
-
-CDECL void cpp_get_string_index_(char *attrib_key, int *s_attrib_key, char *value_string,int *index, int *size, bool *AVAILABLE)
+CDECL void cpp_get_string_index(char *attrib_key, int *s_attrib_key, char *value_string,int *index, int *size, bool *AVAILABLE)
 {
 // Char fortran -> c++
     char *cname;
@@ -80,16 +71,6 @@ CDECL void cpp_get_string_index_(char *attrib_key, int *s_attrib_key, char *valu
     GlobalEntitySDIGetValueString(cname, value_string, size, &isOk, index1);
     free(cname);
 }
-
-CDECL void CPP_GET_STRING_INDEX(char *attrib_key, int *s_attrib_key, char *value_string,int *index, int *size, bool *AVAILABLE)
-{cpp_get_string_index_ (attrib_key, s_attrib_key, value_string,index, size, AVAILABLE);}
-
-CDECL void cpp_get_string_index__(char *attrib_key, int *s_attrib_key, char *value_string,int *index, int *size, bool *AVAILABLE)
-{cpp_get_string_index_ (attrib_key, s_attrib_key, value_string,index, size, AVAILABLE);}
-
-CDECL void cpp_get_string_index(char *attrib_key, int *s_attrib_key, char *value_string,int *index, int *size, bool *AVAILABLE)
-{cpp_get_string_index_ (attrib_key, s_attrib_key, value_string,index, size, AVAILABLE);}
-
 
 
 }

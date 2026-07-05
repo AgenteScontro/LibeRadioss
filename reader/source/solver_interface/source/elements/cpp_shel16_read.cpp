@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_shel16_read_(int *IXS, int *NIXS,int *IXS16, int *NIXS16, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
+CDECL void cpp_shel16_read(int *IXS, int *NIXS,int *IXS16, int *NIXS16, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/SHEL16");
     unsigned int partId = UINT_MAX, includeId = UINT_MAX, unitId = UINT_MAX;
@@ -81,16 +81,6 @@ CDECL void cpp_shel16_read_(int *IXS, int *NIXS,int *IXS16, int *NIXS16, int *NU
         aNodeId.resize(0);
     }
 }
-
-
-CDECL void CPP_SHEL16_READ(int *IXS, int *NIXS,int *IXS16, int *NIXS16, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_shel16_read_ (IXS,NIXS,IXS16,NIXS16,NUMBRICK,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_shel16_read__(int *IXS, int *NIXS,int *IXS16, int *NIXS16, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_shel16_read_ (IXS,NIXS,IXS16,NIXS16,NUMBRICK,IPARTS,SUBID_SOL);}
-
-CDECL void cpp_shel16_read(int *IXS, int *NIXS,int *IXS16, int *NIXS16, int *NUMBRICK, int *IPARTS, int *SUBID_SOL)
-{cpp_shel16_read_ (IXS,NIXS,IXS16,NIXS16,NUMBRICK,IPARTS,SUBID_SOL);}
 
 
 }

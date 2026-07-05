@@ -51,10 +51,8 @@ using namespace std;
 #define IS_DYNA_MODEL 2
 
 
-
 int create_radflex_process();
 int starter_lic_checkout( char * filename,int model);
-
 
 
 ModelViewEdit* pRadiossModelViewSDI = NULL;
@@ -81,7 +79,6 @@ sdiString GetFileNameFromPath(const sdiString& filePath)
         return filePath;
     return retVal;
 }
-
 
 
 bool ReadDynaAndConvert(const char *modelfilename, const char *outfilename)
@@ -188,7 +185,7 @@ bool ReadDynaAndConvert(const char *modelfilename, const char *outfilename)
 extern "C" 
 {
 
-CDECL void cpp_read_dyna_and_convert_(char *name, int *size, int *res,char *name1, int *size1)
+CDECL void cpp_read_dyna_and_convert(char *name, int *size, int *res,char *name1, int *size1)
 {
     char *cname;
     int cname_len;
@@ -209,18 +206,7 @@ CDECL void cpp_read_dyna_and_convert_(char *name, int *size, int *res,char *name
     ReadDynaAndConvert(cname,cname1);
 }
 
-CDECL void CPP_READ_DYNA_AND_CONVERT(char *name, int *size, int *res,char *name1, int *size1)
-{cpp_read_dyna_and_convert_ (name, size, res, name1, size1);}
-
-CDECL void cpp_read_dyna_and_convert__ (char *name, int *size, int *res,char *name1, int *size1)
-{cpp_read_dyna_and_convert_ (name, size, res, name1, size1);}
-
-CDECL void cpp_read_dyna_and_convert (char *name, int *size, int *res,char *name1, int *size1)
-{cpp_read_dyna_and_convert_ (name, size, res, name1, size1);}
-
 
 }
-
-
 
 

@@ -30,20 +30,11 @@
 extern "C" 
 {
 
-CDECL void cpp_option_is_crypted_(bool *IS_CRYPTED)
+CDECL void cpp_option_is_crypted(bool *IS_CRYPTED)
 {
     *IS_CRYPTED = false;
     GlobalEntitySDIIsCrypted(IS_CRYPTED);
 }
-
-CDECL void CPP_OPTION_IS_CRYPTED(bool *IS_CRYPTED)
-{cpp_option_is_crypted_ (IS_CRYPTED);}
-
-CDECL void cpp_option_is_crypted__(bool *IS_CRYPTED)
-{cpp_option_is_crypted_ (IS_CRYPTED);}
-
-CDECL void cpp_option_is_crypted(bool *IS_CRYPTED)
-{cpp_option_is_crypted_ (IS_CRYPTED);}
 
 
 }

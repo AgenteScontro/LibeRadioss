@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_spring_read_(int *IXR, int *NIXR, int *IXR_KJ, int *NIXR_KJ,int *IPARTR, int *SUBID_SPRING, int *SKEWID)
+CDECL void cpp_spring_read(int *IXR, int *NIXR, int *IXR_KJ, int *NIXR_KJ,int *IPARTR, int *SUBID_SPRING, int *SKEWID)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/SPRING");
     int i=0;
@@ -87,15 +87,6 @@ CDECL void cpp_spring_read_(int *IXR, int *NIXR, int *IXR_KJ, int *NIXR_KJ,int *
         aNodeId.resize(0);
     }
 }
-
-CDECL void CPP_SPRING_READ(int *IXR, int *NIXR, int *IXR_KJ, int *NIXR_KJ, int *IPARTR, int *SUBID_SPRING, int *SKEWID)
-{cpp_spring_read_ (IXR,NIXR,IXR_KJ,NIXR_KJ,IPARTR,SUBID_SPRING,SKEWID);}
-
-CDECL void cpp_spring_read__(int *IXR, int *NIXR, int *IXR_KJ, int *NIXR_KJ, int *IPARTR, int *SUBID_SPRING, int *SKEWID)
-{cpp_spring_read_ (IXR,NIXR,IXR_KJ,NIXR_KJ,IPARTR,SUBID_SPRING,SKEWID);}
-
-CDECL void cpp_spring_read(int *IXR, int *NIXR, int *IXR_KJ, int *NIXR_KJ, int *IPARTR, int *SUBID_SPRING, int *SKEWID)
-{cpp_spring_read_ (IXR,NIXR,IXR_KJ,NIXR_KJ,IPARTR,SUBID_SPRING,SKEWID);}
 
 
 }

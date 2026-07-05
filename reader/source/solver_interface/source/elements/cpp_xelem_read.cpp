@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_xelem_read_(int *IDEX,int *IDGU,int *IPARTX, int *SUB_XELEM)
+CDECL void cpp_xelem_read(int *IDEX,int *IDGU,int *IPARTX, int *SUB_XELEM)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/XELEM");
     int i=0;
@@ -76,15 +76,6 @@ CDECL void cpp_xelem_read_(int *IDEX,int *IDGU,int *IPARTX, int *SUB_XELEM)
         i++;
     }
 }
-
-CDECL void CPP_XELEM_READ(int *IDEX,int *IDGU,int *IPARTX, int *SUB_XELEM)
-{cpp_xelem_read_ (IDEX,IDGU,IPARTX,SUB_XELEM);}
-
-CDECL void cpp_xelem_read__(int *IDEX,int *IDGU,int *IPARTX, int *SUB_XELEM)
-{cpp_xelem_read_ (IDEX,IDGU,IPARTX,SUB_XELEM);}
-
-CDECL void cpp_xelem_read(int *IDEX,int *IDGU,int *IPARTX, int *SUB_XELEM)
-{cpp_xelem_read_ (IDEX,IDGU,IPARTX,SUB_XELEM);}
 
 
 }

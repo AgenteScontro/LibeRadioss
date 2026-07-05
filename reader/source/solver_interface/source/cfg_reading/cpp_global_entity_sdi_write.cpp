@@ -31,19 +31,10 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_global_entity_sdi_write_(int *is_dyna)
+CDECL void cpp_global_entity_sdi_write(int *is_dyna)
 {
     GlobalEntitySDIWrite(is_dyna);
 }
-
-CDECL void CPP_GLOBAL_ENTITY_SDI_WRITE(int *is_dyna)
-{cpp_global_entity_sdi_write_ (is_dyna);}
-
-CDECL void cpp_global_entity_sdi_write__(int *is_dyna)
-{cpp_global_entity_sdi_write_ (is_dyna);}
-
-CDECL void cpp_global_entity_sdi_write(int *is_dyna)
-{cpp_global_entity_sdi_write_ (is_dyna);}
 
 
 }

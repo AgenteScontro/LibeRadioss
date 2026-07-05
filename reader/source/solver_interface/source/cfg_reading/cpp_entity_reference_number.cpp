@@ -30,7 +30,7 @@
 extern "C" 
 {
 
-void CDECL cpp_entity_reference_number_(char *attrib_key, int *s_attrib_key, int *id, int *refNumber)
+void CDECL cpp_entity_reference_number(char *attrib_key, int *s_attrib_key, int *id, int *refNumber)
 {
 // Char fortran -> c++
     char *cname;
@@ -44,15 +44,6 @@ void CDECL cpp_entity_reference_number_(char *attrib_key, int *s_attrib_key, int
     *refNumber = 0;
     GlobalModelSDIEntityReferencesNumber(cname,id,refNumber);
 }
-
-void CDECL CPP_ENTITY_REFERENCE_NUMBER(char *attrib_key, int *s_attrib_key, int *id, int *refNumber)
-{cpp_entity_reference_number_ (attrib_key,s_attrib_key,id,refNumber);}
-
-void CDECL cpp_entity_reference_number__(char *attrib_key, int *s_attrib_key, int *id, int *refNumber)
-{cpp_entity_reference_number_ (attrib_key,s_attrib_key,id,refNumber);}
-
-void CDECL cpp_entity_reference_number(char *attrib_key, int *s_attrib_key, int *id, int *refNumber)
-{cpp_entity_reference_number_ (attrib_key,s_attrib_key,id,refNumber);}
 
 
 }

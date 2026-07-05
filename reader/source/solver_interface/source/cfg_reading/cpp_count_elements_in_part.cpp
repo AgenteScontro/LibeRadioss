@@ -32,20 +32,11 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_count_elements_in_part_(int *NB_ELEMS)
+CDECL void cpp_count_elements_in_part(int *NB_ELEMS)
 {
 // Count entity
     GlobalEntitySDICountElementsInPart(NB_ELEMS);
 }
-
-CDECL void CPP_COUNT_ELEMENTS_IN_PART(int *NB_ELEMS)
-{cpp_count_elements_in_part_ (NB_ELEMS);}
-
-CDECL void cpp_count_elements_in_part__(int *NB_ELEMS)
-{cpp_count_elements_in_part_ (NB_ELEMS);}
-
-CDECL void cpp_count_elements_in_part(int *NB_ELEMS)
-{cpp_count_elements_in_part_ (NB_ELEMS);}
 
 
 }

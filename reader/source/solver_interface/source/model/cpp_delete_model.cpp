@@ -33,20 +33,11 @@ using namespace sdi;
 extern "C" 
 {
 
-CDECL void cpp_delete_model_()
+CDECL void cpp_delete_model()
 {
     if(g_pModelViewSDI != NULL) delete g_pModelViewSDI; 
     g_pModelViewSDI = NULL;
 }
-
-CDECL void CPP_DELETE_MODEL()
-{cpp_delete_model_ ();}
-
-CDECL void cpp_delete_model__ ()
-{cpp_delete_model_ ();}
-
-CDECL void cpp_delete_model ()
-{cpp_delete_model_ ();}
 
 
 }

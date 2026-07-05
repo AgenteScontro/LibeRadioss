@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_sphcel_read_(int *KXSP, int *NISP, int *IPARTSP, int *SUBID_SPH, int *TYPE, double *MASS, int *UID_SPHCEL)
+CDECL void cpp_sphcel_read(int *KXSP, int *NISP, int *IPARTSP, int *SUBID_SPH, int *TYPE, double *MASS, int *UID_SPHCEL)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/SPHCEL");
     int i=0;
@@ -90,16 +90,6 @@ CDECL void cpp_sphcel_read_(int *KXSP, int *NISP, int *IPARTSP, int *SUBID_SPH, 
             i++;
         }
 } 
-
-CDECL void CPP_SPHCEL_READ(int *KXSP, int *NISP, int *IPARTSP, int *SUBID_SPH, int *TYPE, double *MASS, int *UID_SPHCEL)
-{cpp_sphcel_read_ (KXSP,NISP,IPARTSP,SUBID_SPH,TYPE,MASS,UID_SPHCEL);}
-
-CDECL void cpp_sphcel_read__(int *KXSP, int *NISP, int *IPARTSP, int *SUBID_SPH, int *TYPE, double *MASS, int *UID_SPHCEL)
-{cpp_sphcel_read_ (KXSP,NISP,IPARTSP,SUBID_SPH,TYPE,MASS,UID_SPHCEL);}
-
-CDECL void cpp_sphcel_read(int *KXSP, int *NISP, int *IPARTSP, int *SUBID_SPH, int *TYPE, double *MASS, int *UID_SPHCEL)
-{cpp_sphcel_read_ (KXSP,NISP,IPARTSP,SUBID_SPH,TYPE,MASS,UID_SPHCEL);}
-
 
 
 }

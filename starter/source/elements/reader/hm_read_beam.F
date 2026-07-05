@@ -57,6 +57,7 @@ C     LSUBMODEL       SUBMODEL STRUCTURE
 C-----------------------------------------------
 C   M o d u l e s
 C-----------------------------------------------
+      USE READER_INTERFACE_MOD
       USE MESSAGE_MOD
       USE SUBMODEL_MOD , ONLY : SUBMODEL_DATA, NSUBMOD
       USE READER_OLD_MOD , ONLY : LINE

@@ -33,7 +33,7 @@
 extern "C" 
 {
 
-CDECL void cpp_set_floatv_(char *attrib_key, int *s_attrib_key,double *value_float, bool *AVAILABLE)
+CDECL void cpp_set_floatv(char *attrib_key, int *s_attrib_key,double *value_float, bool *AVAILABLE)
 {
 // Char fortran -> c++
     char *cname;
@@ -49,18 +49,6 @@ CDECL void cpp_set_floatv_(char *attrib_key, int *s_attrib_key,double *value_flo
     GlobalEntitySDISetValueDouble(cname, value_float, AVAILABLE);
     free(cname);
 }
-
-CDECL void CPP_SET_FLOATV(char *attrib_key, int *s_attrib_key,double *value_float, bool *AVAILABLE)
-{cpp_set_floatv_ (attrib_key,s_attrib_key,value_float,AVAILABLE);}
-
-CDECL void cpp_set_floatv__(char *attrib_key, int *s_attrib_key,double *value_float, bool *AVAILABLE)
-{cpp_set_floatv_ (attrib_key,s_attrib_key,value_float,AVAILABLE);}
-
-CDECL void cpp_set_floatv(char *attrib_key, int *s_attrib_key,double *value_float, bool *AVAILABLE)
-{cpp_set_floatv_ (attrib_key,s_attrib_key,value_float,AVAILABLE);}
-
-
-
 
 
 }

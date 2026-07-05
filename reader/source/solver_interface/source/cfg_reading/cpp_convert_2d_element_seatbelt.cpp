@@ -32,45 +32,13 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_convert_2d_element_seatbelt_(int *PART_MAT119,int *PART_MAXID,int *PROP_MAXID,int *MAT_MAXID,int *ELEM_MAXID,int *OFFSET)
-{
-// Convert entity
-    GlobalEntitySDIConvert2dElementSeatbelt(PART_MAT119,PART_MAXID,PROP_MAXID,MAT_MAXID,ELEM_MAXID,OFFSET);
-}
 
-CDECL void CPP_CONVERT_2D_ELEMENT_SEATBELT(int *PART_MAT119,int *PART_MAXID,int *PROP_MAXID,int *MAT_MAXID,int *ELEM_MAXID,int *OFFSET)
-{cpp_convert_2d_element_seatbelt_ (PART_MAT119,PART_MAXID,PROP_MAXID,MAT_MAXID,ELEM_MAXID,OFFSET);}
-
-CDECL void cpp_convert_2d_element_seatbelt__(int *PART_MAT119,int *PART_MAXID,int *PROP_MAXID,int *MAT_MAXID,int *ELEM_MAXID,int *OFFSET)
-{cpp_convert_2d_element_seatbelt_ (PART_MAT119,PART_MAXID,PROP_MAXID,MAT_MAXID,ELEM_MAXID,OFFSET);}
-
-CDECL void cpp_convert_2d_element_seatbelt(int *PART_MAT119,int *PART_MAXID,int *PROP_MAXID,int *MAT_MAXID,int *ELEM_MAXID,int *OFFSET)
-{cpp_convert_2d_element_seatbelt_ (PART_MAT119,PART_MAXID,PROP_MAXID,MAT_MAXID,ELEM_MAXID,OFFSET);}
-
-
-
-
-
-CDECL void cpp_convert_2d_elements_seatbelt_(int *PART_MAT119,int *PART_MAXID,int *PROP_MAXID,int *MAT_MAXID,int *ELEM_MAXID,int *OFFSET,
+CDECL void cpp_convert_2d_elements_seatbelt(int *PART_MAT119,int *PART_MAXID,int *PROP_MAXID,int *MAT_MAXID,int *ELEM_MAXID,int *OFFSET,
                                       int *SEATBELT_CONVERTED_ELEMENTS,int *ELEM_INDEX)
 {
 // Convert entity
     GlobalEntitySDIConvert2dElementsSeatbelt(PART_MAT119,PART_MAXID,PROP_MAXID,MAT_MAXID,ELEM_MAXID,OFFSET,SEATBELT_CONVERTED_ELEMENTS,ELEM_INDEX);
 }
-
-CDECL void CPP_CONVERT_2D_ELEMENTS_SEATBELT(int *PART_MAT119,int *PART_MAXID,int *PROP_MAXID,int *MAT_MAXID,int *ELEM_MAXID,int *OFFSET,
-                                     int *SEATBELT_CONVERTED_ELEMENTS,int *ELEM_INDEX)
-{cpp_convert_2d_elements_seatbelt_ (PART_MAT119,PART_MAXID,PROP_MAXID,MAT_MAXID,ELEM_MAXID,OFFSET,SEATBELT_CONVERTED_ELEMENTS,ELEM_INDEX);}
-
-CDECL void cpp_convert_2d_elements_seatbelt__(int *PART_MAT119,int *PART_MAXID,int *PROP_MAXID,int *MAT_MAXID,int *ELEM_MAXID,int *OFFSET,
-                                       int *SEATBELT_CONVERTED_ELEMENTS,int *ELEM_INDEX)
-{cpp_convert_2d_elements_seatbelt_ (PART_MAT119,PART_MAXID,PROP_MAXID,MAT_MAXID,ELEM_MAXID,OFFSET,SEATBELT_CONVERTED_ELEMENTS,ELEM_INDEX);}
-
-CDECL void cpp_convert_2d_elements_seatbelt(int *PART_MAT119,int *PART_MAXID,int *PROP_MAXID,int *MAT_MAXID,int *ELEM_MAXID,int *OFFSET,
-                                     int *SEATBELT_CONVERTED_ELEMENTS,int *ELEM_INDEX)
-{cpp_convert_2d_elements_seatbelt_ (PART_MAT119,PART_MAXID,PROP_MAXID,MAT_MAXID,ELEM_MAXID,OFFSET,SEATBELT_CONVERTED_ELEMENTS,ELEM_INDEX);}
-
-
 
 
 }

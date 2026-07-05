@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_tria_read_(int *IXTG, int *NIXTG, int *IPARTTG, int *SUBID_SH3N, int *UID_SH3N)
+CDECL void cpp_tria_read(int *IXTG, int *NIXTG, int *IPARTTG, int *SUBID_SH3N, int *UID_SH3N)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/TRIA");
     int i=0;
@@ -87,14 +87,6 @@ CDECL void cpp_tria_read_(int *IXTG, int *NIXTG, int *IPARTTG, int *SUBID_SH3N, 
         }
 }
 
-CDECL void CPP_TRIA_READ(int *IXTG, int *NIXTG, int *IPARTTG, int *SUBID_SH3N, int *UID_SH3N)
-{cpp_tria_read_ (IXTG,NIXTG,IPARTTG,SUBID_SH3N,UID_SH3N);}
-
-CDECL void cpp_tria_read__(int *IXTG, int *NIXTG, int *IPARTTG, int *SUBID_SH3N, int *UID_SH3N)
-{cpp_tria_read_ (IXTG,NIXTG,IPARTTG,SUBID_SH3N,UID_SH3N);}
-
-CDECL void cpp_tria_read(int *IXTG, int *NIXTG, int *IPARTTG, int *SUBID_SH3N, int *UID_SH3N)
-{cpp_tria_read_ (IXTG,NIXTG,IPARTTG,SUBID_SH3N,UID_SH3N);}
 
 }
 

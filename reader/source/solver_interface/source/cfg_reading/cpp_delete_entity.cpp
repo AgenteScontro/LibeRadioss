@@ -32,20 +32,11 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_delete_entity_()
+CDECL void cpp_delete_entity()
 {
 // delete entity
     GlobalEntitySDIdeleteEntity();
 }
-
-CDECL void CPP_DELETE_ENTITY()
-{cpp_delete_entity_ ();}
-
-CDECL void cpp_delete_entity__()
-{cpp_delete_entity_ ();}
-
-CDECL void cpp_delete_entity()
-{cpp_delete_entity_ ();}
 
 
 }

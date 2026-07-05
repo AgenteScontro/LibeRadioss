@@ -37,7 +37,7 @@ using namespace std;
 extern "C" 
 {
 
-CDECL void cpp_quad_read_(int *IXQ, int *NIXQ, int *IPARTC, int *SUBID_SHELL, int *UID_SHELL)
+CDECL void cpp_quad_read(int *IXQ, int *NIXQ, int *IPARTC, int *SUBID_SHELL, int *UID_SHELL)
 {
     SelectionElementRead elems(g_pModelViewSDI, "/QUAD");
     int i=0;
@@ -86,16 +86,6 @@ CDECL void cpp_quad_read_(int *IXQ, int *NIXQ, int *IPARTC, int *SUBID_SHELL, in
             i++;
         }
 } 
-
-CDECL void CPP_QUAD_READ(int *IXQ, int *NIXQ, int *IPARTC, int *SUBID_SHELL, int *UID_SHELL)
-{cpp_quad_read_ (IXQ,NIXQ,IPARTC,SUBID_SHELL,UID_SHELL);}
-
-CDECL void cpp_quad_read__(int *IXQ, int *NIXQ, int *IPARTC, int *SUBID_SHELL, int *UID_SHELL)
-{cpp_quad_read_ (IXQ,NIXQ,IPARTC,SUBID_SHELL,UID_SHELL);}
-
-CDECL void cpp_quad_read(int *IXQ, int *NIXQ, int *IPARTC, int *SUBID_SHELL, int *UID_SHELL)
-{cpp_quad_read_ (IXQ,NIXQ,IPARTC,SUBID_SHELL,UID_SHELL);}
-
 
 
 }

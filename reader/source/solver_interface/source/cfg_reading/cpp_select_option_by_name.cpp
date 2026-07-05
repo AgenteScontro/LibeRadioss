@@ -57,14 +57,5 @@ CDECL void cpp_select_option_by_name(char *ENTITY_TYPE, int *S_ENTITY_TYPE, char
     free(cname1);
 }
 
-CDECL void CPP_SELECT_OPTION_BY_NAME(char *ENTITY_TYPE, int *S_ENTITY_TYPE, char *attrib_key, int *s_attrib_key, int *subIndex)
-{cpp_select_option_by_name (ENTITY_TYPE,S_ENTITY_TYPE,attrib_key,s_attrib_key,subIndex);}
-
-CDECL void cpp_select_option_by_name_(char *ENTITY_TYPE, int *S_ENTITY_TYPE, char *attrib_key, int *s_attrib_key, int *subIndex)
-{cpp_select_option_by_name (ENTITY_TYPE,S_ENTITY_TYPE,attrib_key,s_attrib_key,subIndex);}
-
-CDECL void cpp_select_option_by_name__(char *ENTITY_TYPE, int *S_ENTITY_TYPE, char *attrib_key, int *s_attrib_key, int *subIndex)
-{cpp_select_option_by_name (ENTITY_TYPE,S_ENTITY_TYPE,attrib_key,s_attrib_key,subIndex);}
-
 
 }
