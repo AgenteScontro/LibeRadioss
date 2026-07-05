@@ -1,12 +1,12 @@
 # LibeRadioss
 
 > **LibeRadioss is an unofficial fork of [OpenRadioss](https://github.com/OpenRadioss/OpenRadioss).**
-> It is not affiliated with, endorsed by, or supported by Altair or the OpenRadioss project.
+> It is not affiliated with, endorsed by, or supported by Altair, Siemens, or the OpenRadioss project.
 > For the official upstream project, releases, and support, see [www.openradioss.org](https://www.openradioss.org).
 
 ## What is LibeRadioss?
 
-LibeRadioss is a personal, independently maintained fork of OpenRadioss, built on top of the same underlying **Altair® Radioss®** solver technology. It tracks upstream OpenRadioss and layers on additional changes and experiments that have not (or not yet) been merged into the official project.
+LibeRadioss is a personal, independently maintained fork of OpenRadioss, built on top of the same underlying **Altair® Radioss®** solver technology. It tracks upstream OpenRadioss and layers on additional changes and experiments that have not been merged into the official project. The primary goal of this fork is to simplify support for the Linux/WSL version by making it less dependent from third-party libraries. 
 
 **Altair® Radioss®** is an industry-proven analysis solution that helps users evaluate and optimize product performance for highly nonlinear problems under dynamic loadings. For more than 30 years, organizations have used Altair Radioss to streamline and optimize the digital design process, replace costly physical tests with quick and efficient simulation, and speed up design optimization iterations.
 
