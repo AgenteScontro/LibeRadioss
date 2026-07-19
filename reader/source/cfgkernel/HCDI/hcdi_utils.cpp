@@ -507,7 +507,7 @@ void CFGLinkSubObjectsToParent(std::vector<IMECPreObject*>           parentlst[]
                 //}
             }
         }
-        else if (descriptor.link_by == CFG_LNK_CHILD_BY_ATTRIBS || !strcmp(descriptor.clnkatt, "_ID_") && sorted_child_ids.count(child_ktype)) {
+        else if ((descriptor.link_by == CFG_LNK_CHILD_BY_ATTRIBS || !strcmp(descriptor.clnkatt, "_ID_")) && sorted_child_ids.count(child_ktype)) {
             // Get the sorted list of child IDs for this ktype
             const auto& child_objs = sorted_child_ids.at(child_ktype);
 
@@ -542,7 +542,7 @@ void CFGLinkSubObjectsToParent(std::vector<IMECPreObject*>           parentlst[]
                 }
             }
         }
-        else if (descriptor.link_by == CFG_LNK_CHILD_BY_ATTRIBS || !strcmp(descriptor.clnkatt, "name") && sorted_child_names.count(child_ktype)) {
+        else if ((descriptor.link_by == CFG_LNK_CHILD_BY_ATTRIBS || !strcmp(descriptor.clnkatt, "name")) && sorted_child_names.count(child_ktype)) {
             // Get the sorted list of child IDs for this ktype
             const auto& child_objs = sorted_child_names.at(child_ktype);
 

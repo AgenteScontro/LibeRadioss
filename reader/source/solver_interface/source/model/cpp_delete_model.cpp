@@ -25,6 +25,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <sdiModelView.h>
 #include <dll_settings.h>
 
 using namespace sdi;

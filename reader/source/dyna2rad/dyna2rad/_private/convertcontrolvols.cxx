@@ -698,8 +698,8 @@ void sdiD2R::ConvertControlVolume::ConvertInitialFoamReferenceGeometry()
                 sdiString matCard = matEntityRead.GetKeyword();
                 sdiString radmatCard = radmatEntityRead.GetKeyword();
                 
-                if (( lsdmatREF == 1.0 && 
-                    ( matCard.find("*MAT_ORTHOTROPIC_ELASTIC") != string::npos || matCard.find("*MAT_002") != string::npos ) ||
+                if (( lsdmatREF == 1.0 &&
+                    ( ( matCard.find("*MAT_ORTHOTROPIC_ELASTIC") != string::npos || matCard.find("*MAT_002") != string::npos ) ||
                     ( matCard.find("*MAT_SOIL_AND_FOAM") != string::npos || matCard.find("*MAT_005") != string::npos ) ||
                     ( matCard.find("*MAT_BLATZ-KO_RUBBER") != string::npos || matCard.find("*MAT_007") != string::npos ) ||
                     ( matCard.find("*MAT_ORTHOTROPIC_THERMAL") != string::npos || matCard.find("*MAT_021") != string::npos ) ||
@@ -713,7 +713,7 @@ void sdiD2R::ConvertControlVolume::ConvertInitialFoamReferenceGeometry()
                     ( matCard.find("*MAT_FU_CHANG_FOAM") != string::npos || matCard.find("*MAT_083") != string::npos ) ||
                     ( matCard.find("*MAT_ORTHOTROPIC_SMEARED_CRACK") != string::npos || matCard.find("*MAT_132") != string::npos ) ||
                     ( matCard.find("*MAT_LOW_DENSITY_SYNTHETIC_FOAM") != string::npos || matCard.find("*MAT_179") != string::npos ) ||
-                    ( matCard.find("*MAT_ANISOTROPIC_THERMOELASTIC") != string::npos || matCard.find("*MAT_189") != string::npos )) &&
+                    ( matCard.find("*MAT_ANISOTROPIC_THERMOELASTIC") != string::npos || matCard.find("*MAT_189") != string::npos ) ) ) &&
                     ( ( radmatCard.find("/MAT/OGDEN") != string::npos || matCard.find("/MAT/LAW42") != string::npos ) ||
                       ( radmatCard.find("/MAT/FOAM_TAB") != string::npos || matCard.find("/MAT/LAW70") != string::npos ) ||
                       ( radmatCard.find("/MAT/LAW90") != string::npos ) )

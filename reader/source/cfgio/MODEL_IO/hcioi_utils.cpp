@@ -973,7 +973,7 @@ void MergeArrayAttributesToPreobject(const IDescriptor* pdescrp, IMECPreObject& 
                     switch (a_vtype) {
                     case IMECPreObject::VTY_BOOL:
                         preobject_base.AddBoolArray(a_keyword, total_size);
-                        for (a_nb_values_base = 0; l < total_size; ++l) preobject_base.SetBoolValue(k, l, preobject_to_merge.GetBoolValue(k, l - a_nb_values_base));
+                        for (l = a_nb_values_base; l < total_size; ++l) preobject_base.SetBoolValue(k, l, preobject_to_merge.GetBoolValue(k, l - a_nb_values_base));
                         break;
                     case IMECPreObject::VTY_INT:
                         preobject_base.AddIntArray(a_keyword, total_size);

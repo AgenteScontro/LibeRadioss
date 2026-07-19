@@ -100,8 +100,8 @@ const string &MV_get_domain(MvDomain_e domain) {
 int MV_get_domains(const string &domains) {
   int a_domains=0;
   //
-  unsigned int a_pos=(unsigned int)(domains.find("|"));
-  if(a_pos==domains.npos) {
+  string::size_type a_pos=domains.find("|");
+  if(a_pos==string::npos) {
     MvDomain_e a_domain=MV_get_domain(domains);
     if(a_domain!=DOM_UNKNOWN) a_domains|=a_domain;
   } else {

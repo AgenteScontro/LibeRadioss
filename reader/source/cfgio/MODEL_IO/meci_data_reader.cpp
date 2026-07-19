@@ -7477,7 +7477,7 @@ const char *MECIDataReader::readCell_SCALAR_OR_OBJECT(const char                
                 object_p->AddUIntValue(a_scalar_skw.c_str(), ind, (unsigned int)a_ivalue);
             }      
             // this is Dyna specific: if the value is negative, its abs value is the ID of an object
-            if (0 > a_value) a_id = a_value;
+            if (0 > a_ivalue) a_id = abs(a_ivalue);
         }
     }
     break;

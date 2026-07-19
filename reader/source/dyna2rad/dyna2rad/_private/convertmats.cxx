@@ -3105,8 +3105,10 @@ void ConvertMat::p_ConvertMatL37(const EntityRead& dynaMat, sdiString& destCard,
             }
         
         else
+        {
             radmatEntityEdit.SetValue(sdiIdentifier("NUM_CURVES"), sdiValue(1));
             radmatEntityEdit.SetValue(sdiIdentifier("func_IDi",0,0), sdiValue(sdiValueEntity(p_radiossModel->GetEntityType("/FUNCT"), hlcidEntity.GetId())));
+        }
 
         // Get R value from LS-DYNA material
         double lsdR = GetValue<double>(dynaMat, "R");
@@ -5169,8 +5171,8 @@ void ConvertMat::p_ConvertMatL183(const EntityRead& dynaMat, sdiString& destCard
     double lsdSGL;
     double lsdSW;
     double lsdST;
-    double radSFA;
-    double radSFO;
+    double radSFA = 1.0;
+    double radSFO = 1.0;
     vector<reference_wrapper<double>> attribVals({ lsdSGL, lsdSW, lsdST });
     vector<sdiString> attribNames({ "LSD_MAT_SGL", "LSD_MAT_SW", "LSD_MAT_ST" });
     p_ConvertUtils.GetAttribValues(dynaMat, attribNames, attribVals);
