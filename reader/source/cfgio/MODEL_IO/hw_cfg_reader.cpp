@@ -65,6 +65,7 @@ extern "C"
 #include <MODEL_IO/meci_read_model_base.h>
 #include <MODEL_IO/meci_model_factory.h>
 #include "hw_cfg_reader.h"
+#include "hw_cfg_reader_message.h"
 #include <mec_data_writer.h>
 #include <fstream>
 #include <algorithm>
@@ -1282,7 +1283,7 @@ bool HWCFGReader::readObjectData(const PseudoFileFormat_t* format_p,  IMECPreObj
 /* --------- Parsing --------- */
 
 /*default implementation is to read the include file in the same line.. incase of dyna it is in next line...*/
-bool HWCFGReader::IsIncludedFile(const char* buffer, char** full_name_p, char** relative_name_p)  {
+bool HWCFGReader::IsIncludedFile(const char* buffer, char** full_name_p, char** relative_name_p, char** include_path)  {
     bool a_is_include = myInputInfosPtr->IsIncludeHeader(buffer); 
   //
     if (a_is_include) {
@@ -1397,6 +1398,8 @@ bool HWCFGReader::IsIncludedFile(const char* buffer, char** full_name_p, char** 
 
             *relative_name_p = strdup(a_relative_name.c_str());
             *full_name_p = strdup(a_full_name.c_str());
+            if (include_path)
+                *include_path = strdup(my_get_dir_path(a_relative_name).c_str());
             my_dir_restore_current_path(last_current_path);
 
   
@@ -1762,6 +1765,41 @@ void HWCFGReader::ClearRecordBuffer() {
 /* --------- Messages --------- */
 const char* HWCFGReader::getMsg(int ind) const {
     return MV_get_msg_array(MSGT_READ_D00_5X)[ind];
+}
+
+void HWCFGReader::SetMessageList(HWCFGReaderMessageList* pMessageList, bool owningMessageList)
+{
+    if (m_owningMessageList && m_pMessageList) delete m_pMessageList;
+    m_pMessageList = pMessageList;
+    m_owningMessageList = owningMessageList;
+}
+
+// The reader does not print messages itself: it stores them in the message list
+// (when one has been set) so the application can query them with GetMessageList().
+void HWCFGReader::displayMessage(MyMsgType_e msg_type, const char* format, ...) const
+{
+    if (m_pMessageList == nullptr) return;
+
+    int a_type; // message list types: 0 = info, 1 = warning, 2 = error
+    switch (msg_type) {
+    case MSG_WARNING: a_type = 1; break;
+    case MSG_ERROR:   a_type = 2; break;
+    default:          a_type = 0; break;
+    }
+
+    const char* a_full_name = getCurrentFullName();
+
+    va_list a_args;
+    va_start(a_args, format);
+    m_pMessageList->Add(format, a_args, a_type,
+                        "", "",
+                        a_full_name ? a_full_name : "", (unsigned int)getCurrentLine());
+    va_end(a_args);
+}
+
+int HWCFGReader::readKeyword(const CUserNameTypeInfo* p_type_info, MECIModelFactory* model_p, const char* header)
+{
+    return 0;
 }
 
 
