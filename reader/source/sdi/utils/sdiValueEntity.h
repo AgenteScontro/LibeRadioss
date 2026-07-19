@@ -67,6 +67,7 @@ public:
     inline sdiValueEntityType();
 
     ~sdiValueEntityType() {}  // Thus, you shouldn't ever derive from this class.
+    inline sdiValueEntityType(const sdiValueEntityType&) = default;
 
 
     inline sdiValueEntityType& operator=(const sdiValueEntityType& other);
@@ -119,6 +120,7 @@ public:
 
     //! Exposed destructor
     ~sdiValueEntity() {}  // Thus, you shouldn't ever derive from this class.
+    inline sdiValueEntity(const sdiValueEntity&) = default;
 
     inline sdiValueEntity& operator=(const sdiValueEntity& other);
 
@@ -166,6 +168,7 @@ public:
 
     //! Exposed destructor
     ~sdiValueEntityList() {}  // Thus, you shouldn't ever derive from this class.
+    inline sdiValueEntityList(const sdiValueEntityList&) = default;
 
 
     inline sdiValueEntityList& operator=(const sdiValueEntityList& other);
@@ -238,6 +241,7 @@ public:
         typedef sdiValueEntity const&     reference;
 
         const_iterator(sdiValueEntityList const& el, unsigned int i) : _i(i), _el(&el) {}
+        const_iterator(const const_iterator&) = default;
         const_iterator& operator=(const const_iterator& input) { _el = input._el; _i = input._i; return *this; }
 
         const_iterator& operator++() { ++_i; return *this; }
@@ -285,6 +289,7 @@ public:
 
     //! Exposed destructor
     ~sdiValueEntityList2() {}  // Thus, you shouldn't ever derive from this class.
+    inline sdiValueEntityList2(const sdiValueEntityList2&) = default;
 
 
     inline sdiValueEntityList2& operator=(const sdiValueEntityList2& other);

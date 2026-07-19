@@ -125,6 +125,7 @@ namespace sdiD2R
             GroupInfo() {}
             GroupInfo(const GroupInfo& other) :
                 keyword(other.keyword), childKeyword(other.childKeyword), parentKeyword(other.parentKeyword) {}
+            GroupInfo& operator=(const GroupInfo&) = default;
             GroupInfo(sdiString _keyword, sdiString _childKeyword, const std::vector<sdiString>& _parentKeyword,
                 sdi::ModelViewRead* pModelView) :
                 keyword(_keyword), childKeyword(_childKeyword), parentKeyword(_parentKeyword)
